@@ -1,0 +1,16 @@
+---
+description: Constitution of cpp-toolbox — catalog layout, vertical slices, toolbox limits
+alwaysApply: true
+---
+
+# Constitution
+
+This repo is a **catalog of independently compilable C++ artifacts**, not one library. [BLUEPRINT.md](BLUEPRINT.md) wins on layout and tooling. [catalog.yaml](catalog.yaml) is the index of record.
+
+- Place work under `tutorials/`, `how-to/`, `examples/`, `exercises/`, `projects/`, `templates/`, or `toolbox/` — never a new top-level kind.
+- Ship **vertical slices**: code + comments + leaf `README.md` + catalog row + docs page. Do not merge “code now, docs later.”
+- Docs `literalinclude` marked regions (`// start <id>` / `// end <id>`). Do not paste a second copy of the program into Markdown.
+- `toolbox/` stays tiny. Promote a helper only after ~three copies. Entries must still make sense copied alone.
+- `templates/` are copy-out. Never add them to the CMake superbuild.
+- C++20 floor. Planned toolchain is CMake + Sphinx + Doxygen ([docs/build.md](docs/build.md)); do not invent a second stack.
+- New entries: skill `add-catalog-entry`. Completeness: `/review-entry`.

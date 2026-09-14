@@ -1,0 +1,28 @@
+---
+description: Modern C++20 standards for cpp-toolbox sources
+globs: "**/*.cpp,**/*.hpp,**/*.h,**/*.cc,**/*.cxx,**/*.ipp,**/*.tpp"
+alwaysApply: false
+---
+
+# C++ standards
+
+C++20 floor (`std: 23` only when the catalog row says so). C++ Core Guidelines. Details: [docs/style.md](docs/style.md).
+
+```cpp
+// BAD
+auto* p = new double[n];
+// ...
+delete[] p;
+
+// GOOD — ownership in the type
+std::vector<double> x(n);
+std::span<double> view{x};
+```
+
+- No bare `new`/`delete`. No `using namespace std;` in headers.
+- Non-owning views: `std::span` / `std::string_view`, not raw pointers to someone else’s buffer.
+- `const` by default. Encode ownership in signatures.
+- Headers in `toolbox/include/toolbox/` are included as `#include <toolbox/name.hpp>`, `#pragma once`, self-contained.
+- Lesson code sits between `// start <id>` and `// end <id>` for Sphinx.
+- Identifiers: `snake_case` functions and variables, `PascalCase` types. Files and folders stay kebab-case.
+- Prefer the standard library. A third-party dependency must be pinned and justified in the leaf README.

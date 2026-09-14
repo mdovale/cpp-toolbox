@@ -1,0 +1,24 @@
+---
+description: Numerical honesty for scientific and engineering C++ entries
+globs: tutorials/**,how-to/**,examples/**,exercises/**,projects/**,toolbox/**
+alwaysApply: false
+---
+
+# Scientific numerics
+
+Assume calculus and linear algebra. Explain UB, races, and lifetime as ways results go silently wrong.
+
+- State **units** and **dtype** (and why that dtype) at the data model.
+- Ship a **correctness check**: residual, invariant, manufactured solution, or a property (`isfinite`, conservation to a stated tolerance).
+- Name the failure mode (cancellation, stiffness, overflow) when a method is fragile.
+- Do not hide `float` vs `double` behind an uncommented typedef.
+- Comments: this invariant, this tolerance, this pitfall. README: why this method, alternatives, references.
+
+```cpp
+// BAD — magic tolerance, no units
+if (err < 1e-6) ...
+
+// GOOD
+constexpr double kEnergyTolJ = 1e-8; // J; relative to |E0| ~ 1
+if (std::abs(energy_j - energy0_j) > kEnergyTolJ) ...
+```

@@ -1,0 +1,25 @@
+---
+description: Catalog rows, leaf READMEs, and Sphinx pages stay in sync with source
+globs: catalog.yaml,docs/**,**/README.md,**/prompt.md,tutorials/**,how-to/**,examples/**,exercises/**,projects/**,templates/**
+alwaysApply: false
+---
+
+# Catalog and documentation
+
+If it is not in `catalog.yaml`, it is not in the book. Topics are the controlled list in that file.
+
+- Same change as the code: leaf `README.md` (what, when, build, see-also) and a `docs/` page.
+- Include source; do not duplicate it:
+
+  ````markdown
+  ```{literalinclude} ../../../path/to/main.cpp
+  :language: cpp
+  :start-after: // start the-id
+  :end-before: // end the-id
+  ```
+  ````
+
+- `status: complete` only when code, README, catalog row, and docs page all exist. `planned` is backlog (no folder required). Avoid merging `draft`.
+- Exercises: spoilers stay out of `prompt.md`. Solutions are a Sphinx dropdown (HTML) and a PDF appendix, never HTML-only.
+- Voice: engineering/scientific. Math is welcome. CS jargon needs an engineering consequence.
+- Skill `write-scientific-docs` for page shape; skill `review-catalog-entry` before you call it done.

@@ -1,0 +1,126 @@
+# catalog.yaml — index of record for cpp-toolbox.
+# CMake, Sphinx, and the README table follow this file.
+# Schema: BLUEPRINT.md. Do not add an in-tree entry without a row here.
+#
+# kind:       tutorial | how-to | example | exercise | project | template
+# topic:      one of the vocabulary below (add a topic only on purpose)
+# difficulty: 1 intro … 3 needs numerical care … 5 project-scale
+# std:        20 | 23  (C++20 floor; 23 only when the lesson needs it)
+# status:     planned | draft | complete
+#
+# Topics (controlled vocabulary):
+#   language      — ownership, types, ranges, error handling, C++ as used in labs
+#   numerics      — floating point, stability, quadrature, ODE/PDE sketches
+#   linear-algebra
+#   io            — files, CSV, structured scientific data
+#   parallelism   — parallel STL, threads, as used in engineering codes
+#   performance   — measurement, locality, practical speed
+#   testing       — testing numerical and scientific code
+#   build         — CMake, sanitizers, how we compile
+#   interop       — C APIs, Python extensions (later)
+
+version: 1
+
+topics:
+  - language
+  - numerics
+  - linear-algebra
+  - io
+  - parallelism
+  - performance
+  - testing
+  - build
+  - interop
+
+entries:
+  - id: build-and-ub
+    kind: tutorial
+    topic: build
+    difficulty: 1
+    std: 20
+    tags: [sanitizers, undefined-behavior, cmake]
+    title: Build, sanitizers, and what UB looks like
+    path: tutorials/01-build-and-ub
+    status: planned
+  - id: raii-and-ownership
+    kind: tutorial
+    topic: language
+    difficulty: 1
+    std: 20
+    tags: [raii, span, lifetime]
+    title: RAII, ownership, and views
+    path: tutorials/02-raii-and-ownership
+    status: planned
+  - id: error-handling
+    kind: tutorial
+    topic: language
+    difficulty: 2
+    std: 20
+    tags: [exceptions, expected, error-handling]
+    title: Errors in laboratory C++
+    path: tutorials/03-error-handling
+    status: planned
+  - id: floating-point
+    kind: tutorial
+    topic: numerics
+    difficulty: 2
+    std: 20
+    tags: [floating-point, rounding, cancellation]
+    title: Floating point and numerical honesty
+    path: tutorials/04-floating-point
+    status: planned
+  - id: ranges-for-data
+    kind: tutorial
+    topic: language
+    difficulty: 2
+    std: 20
+    tags: [ranges, containers, algorithms]
+    title: Containers, algorithms, and ranges for scientific data
+    path: tutorials/05-ranges-for-data
+    status: planned
+  - id: parallel-stl
+    kind: tutorial
+    topic: parallelism
+    difficulty: 3
+    std: 20
+    tags: [parallel-stl, threads]
+    title: Parallel STL and practical threading
+    path: tutorials/06-parallel-stl
+    status: planned
+  - id: engineering-io
+    kind: tutorial
+    topic: io
+    difficulty: 2
+    std: 20
+    tags: [files, csv]
+    title: I/O for engineering data
+    path: tutorials/07-engineering-io
+    status: planned
+  - id: testing-numerics
+    kind: tutorial
+    topic: testing
+    difficulty: 3
+    std: 20
+    tags: [testing, tolerances, residuals]
+    title: How to test numerical code
+    path: tutorials/08-testing-numerics
+    status: planned
+  - id: cmake-app
+    kind: tutorial
+    topic: build
+    difficulty: 2
+    std: 20
+    tags: [cmake, project-layout]
+    title: Structure a small CMake app
+    path: tutorials/09-cmake-app
+    status: planned
+  - id: read-a-profile
+    kind: tutorial
+    topic: performance
+    difficulty: 3
+    std: 20
+    tags: [profiling, measurement]
+    title: How to read a profiler output
+    path: tutorials/10-read-a-profile
+    status: planned
+

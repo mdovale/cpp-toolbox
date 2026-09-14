@@ -1,0 +1,17 @@
+---
+description: CMake and build-spine conventions for cpp-toolbox
+globs: "**/CMakeLists.txt,**/*.cmake,CMakePresets.json,cmake/**,docs/build.md"
+alwaysApply: false
+---
+
+# CMake and build
+
+Spec: [docs/build.md](docs/build.md). Do not add Meson, a root Makefile-as-system, mdBook, or Doxygen-only docs.
+
+- One catalog entry → one CMake target via `add_toolbox_example()` (once that helper exists). No mega-demo binary.
+- `templates/` are never `add_subdirectory`’d.
+- C++20 at the root; 23 only per target when the catalog row says `std: 23`.
+- Presets: `dev` (warnings as errors, compile commands), `sanitize` (ASan/UBSan), `docs`.
+- Default configure: toolbox tests + tutorials. Examples/projects: `-DTOOLBOX_BUILD_EXAMPLES=ON`.
+- Dependencies: tiny, pinned (CPM/FetchContent), justified in the entry README. Catch2 and `{fmt}` are the expected first pins.
+- Until the spine exists, keep `main.cpp` valid as `c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp`.

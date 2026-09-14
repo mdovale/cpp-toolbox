@@ -1,0 +1,96 @@
+# --- Build (CMake, Ninja, Make, compilers) ---
+/build/
+/build-*/
+/out/
+/cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+CTestTestfile.cmake
+CMakeUserPresets.json
+compile_commands.json
+/Makefile
+Testing/
+install_manifest.txt
+*.ninja
+.ninja_deps
+.ninja_log
+
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+a.out
+*.app
+*.dSYM/
+*.exp
+*.ilk
+*.pdb
+*.gch
+*.pch
+
+# --- Clangd / ccache ---
+.cache/
+.cache/clangd/
+.ccache/
+
+# --- Tests, coverage, sanitizers ---
+*.gcda
+*.gcno
+*.gcov
+*.profraw
+*.profdata
+default.profraw
+coverage/
+.coverage
+
+# --- Docs (generated only) ---
+docs/_build/
+docs/api/xml/
+docs/api/html/
+doxygen/xml/
+doxygen/html/
+docs/generated/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.toc
+*.synctex.gz
+
+# --- Python (Sphinx, scripts) ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Package managers (if used later) ---
+/vcpkg_installed/
+/installed/
+conan.lock
+
+# --- IDE / OS ---
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.xcuserstate
+xcuserdata/
+
+# Keep shared editor settings if we add them:
+# .vscode/ is not ignored on purpose.
