@@ -10,8 +10,8 @@
 ```
 
 This is chapter 5 of the [contents](../learning-path.md). It depends on
-[floating-point](floating-point.md). The next spine id is
-`small-linear-algebra`; that chapter is not yet written.
+[floating-point](floating-point.md). The next spine chapter is
+[small-linear-algebra](small-linear-algebra.md).
 
 A helper that cannot form its assigned result has still produced a
 result: the failure itself. Domain errors, empty records, and violated
@@ -113,7 +113,8 @@ named swallow that still prints a plausible $3.0\,\mathrm{V}$. Error
 codes and out-parameters are easy to ignore for the same reason the
 dummy is easy to keep.
 
-The next spine item, `small-linear-algebra`, is about 3-vectors; this
-chapter is about failures the program can report and then hide.
+The next spine chapter, [small-linear-algebra](small-linear-algebra.md),
+is about 3-vectors. This chapter is about failures the program can
+report and then hide.
 
 Cited works are collected in {doc}`/references`.

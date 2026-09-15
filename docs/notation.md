@@ -29,6 +29,8 @@ load.
 
 Column vectors are lowercase bold in prose when needed, and plain $x$
 in inline math for a 3-vector of `double`. Matrices are $A$, $R$. A
+$3\times 3$ map stored in a length-9 `std::array` is column-major:
+entry $a_{ij}$ lives at index $i+3j$ with $i,j\in\{0,1,2\}$. A
 named frame is a label, not a type, until chapter 7. Do not write
 $\dot{x}$ for a time derivative until chapter 8; the contents table
 uses that symbol only to name the ODE lesson.

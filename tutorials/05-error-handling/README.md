@@ -66,5 +66,4 @@ C++20 and names it in the chapter.
 - `floating-point`: prior spine item; a defined evaluation can still
   print the wrong number. This chapter is a detected error that is then
   swallowed.
-- `small-linear-algebra` (planned): next spine item; 3-vectors and
-  3-by-3 maps.
+- `small-linear-algebra`: next spine item; 3-vectors and 3-by-3 maps.

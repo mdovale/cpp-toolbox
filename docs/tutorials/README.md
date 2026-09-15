@@ -12,4 +12,5 @@ raii-and-ownership
 cmake-app
 floating-point
 error-handling
+small-linear-algebra
 ```

@@ -92,7 +92,8 @@ entries:
     tags: [vectors, matrices, linear-algebra]
     title: Small vectors and matrices
     path: tutorials/06-small-linear-algebra
-    status: planned
+    status: complete
+    prose: complete
   - id: frames-and-rotations
     kind: tutorial
     topic: linear-algebra
