@@ -32,13 +32,19 @@ cmake --preset docs
 cmake --build --preset docs --target docs-html
 ```
 
-Default build: `toolbox` tests + any `tutorials/*/main.cpp` that exist. How-tos, examples, exercises, and projects: `-DTOOLBOX_BUILD_EXAMPLES=ON`.
+Default build: `toolbox` tests + any `tutorials/*/main.cpp` that exist.
+Every `*.cpp` next to that `main.cpp` is compiled into the same target
+(see `cmake-app`). How-tos, examples, exercises, and projects:
+`-DTOOLBOX_BUILD_EXAMPLES=ON`.
 
-A leaf `main.cpp` must still be valid C++20 a reader can compile by hand:
+A one-file leaf compiles by hand as C++20:
 
 ```bash
 c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o demo
 ```
+
+A multi-file leaf lists every `.cpp` in the folder (the copy-out
+`CMakeLists.txt` in `cmake-app` is that list).
 
 ## Documentation
 

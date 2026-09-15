@@ -10,8 +10,9 @@
 ```
 
 This is chapter 1 of the [contents](../learning-path.md). It assumes no
-prior catalog entry. The next spine chapter is
-[raii-and-ownership](raii-and-ownership.md). `cmake-app` remains planned.
+prior catalog entry. The next spine chapters are
+[raii-and-ownership](raii-and-ownership.md) and
+[cmake-app](cmake-app.md).
 
 Undefined behavior withdraws the language's guarantee that the
 executable remains a semantics for the program text

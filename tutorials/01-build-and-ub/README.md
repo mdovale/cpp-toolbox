@@ -67,4 +67,4 @@ the mean is correct.
 ## See also
 
 - `raii-and-ownership`: next spine item; lifetime and views.
-- `cmake-app` (planned): next build lesson; more than one source file.
+- `cmake-app`: next build lesson; more than one source file.

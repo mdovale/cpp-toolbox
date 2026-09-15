@@ -10,8 +10,8 @@
 ```
 
 This is chapter 2 of the [contents](../learning-path.md). It depends on
-[build-and-ub](build-and-ub.md). The next spine id is `cmake-app`; that
-chapter is not yet written.
+[build-and-ub](build-and-ub.md). The next spine chapter is
+[cmake-app](cmake-app.md). `floating-point` remains planned.
 
 A laboratory buffer is a resource: a region of storage that must be
 released exactly once. RAII (Resource Acquisition Is Initialization)

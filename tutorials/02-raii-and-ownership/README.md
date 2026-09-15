@@ -63,4 +63,4 @@ class of bug while the vector object is still in scope.
 
 - `build-and-ub`: prior spine item; sanitizers and a defined default
   `main`.
-- `cmake-app` (planned): next spine item; more than one source file.
+- `cmake-app`: next spine item; more than one source file.

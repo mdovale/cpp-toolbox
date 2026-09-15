@@ -62,7 +62,8 @@ entries:
     tags: [cmake, project-layout]
     title: Structure a small CMake app
     path: tutorials/03-cmake-app
-    status: planned
+    status: complete
+    prose: complete
   - id: floating-point
     kind: tutorial
     topic: numerics

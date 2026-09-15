@@ -75,7 +75,10 @@ function(toolbox_add_lesson_tree root_dir)
         "toolbox_add_lesson_tree: duplicate target '${name}' from ${dir}"
       )
     endif()
-    add_toolbox_example(NAME "${name}" SOURCES "${main}")
+    # Every *.cpp in the lesson folder is one executable.
+    file(GLOB sources CONFIGURE_DEPENDS "${dir}/*.cpp")
+    list(SORT sources)
+    add_toolbox_example(NAME "${name}" SOURCES ${sources})
   endforeach()
 endfunction()
 
