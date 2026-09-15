@@ -11,6 +11,7 @@ This page is the Sphinx homepage. How to build: [build.md](build.md).
 learning-path
 style
 build
+api
 ```
 
 ```{toctree}

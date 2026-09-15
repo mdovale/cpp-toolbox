@@ -5,7 +5,8 @@ This directory is the **Sphinx book** source. From the repository root:
 ```bash
 source .venv/bin/activate
 pip install -r docs/requirements.txt
-sphinx-build -W -b html docs docs/_build/html
+./scripts/build-docs.sh          # HTML
+./scripts/build-docs.sh --pdf    # HTML + PDF
 ```
 
 | File | Role |
@@ -13,7 +14,8 @@ sphinx-build -W -b html docs docs/_build/html
 | [index.md](index.md) | Book landing page (Sphinx root) |
 | [learning-path.md](learning-path.md) | Order we fill tutorials first |
 | [style.md](style.md) | C++ and prose conventions |
-| [build.md](build.md) | CMake, Sphinx, Doxygen, presets |
+| [build.md](build.md) | CMake, Sphinx, Doxygen, PDF |
+| [api.md](api.md) | `toolbox/` API (Breathe) |
 
 ## Catalog pages
 

@@ -1,0 +1,35 @@
+# Doxygen config for toolbox headers. XML is consumed by Breathe.
+# Run from docs/ (see conf.py). Output: docs/_build/doxygen/
+
+PROJECT_NAME           = cpp-toolbox
+PROJECT_BRIEF          = "Modern C++ catalog for engineers and scientists"
+OUTPUT_DIRECTORY       = _build/doxygen
+CREATE_SUBDIRS         = NO
+QUIET                  = YES
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED    = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_NO_PARAMDOC       = YES
+WARN_AS_ERROR          = YES
+
+INPUT                  = ../toolbox/include
+RECURSIVE              = YES
+FILE_PATTERNS          = *.hpp
+EXCLUDE_PATTERNS       = */README.md
+
+EXTRACT_ALL            = NO
+EXTRACT_STATIC         = YES
+HIDE_UNDOC_MEMBERS      = NO
+HIDE_UNDOC_CLASSES      = NO
+
+GENERATE_HTML          = NO
+GENERATE_LATEX         = NO
+GENERATE_XML           = YES
+XML_PROGRAMLISTING     = YES
+HAVE_DOT               = NO
+
+JAVADOC_AUTOBRIEF      = YES
+AUTOLINK_SUPPORT       = YES
+BUILTIN_STL_SUPPORT     = YES
+MACRO_EXPANSION        = YES
+SKIP_FUNCTION_MACROS   = YES

@@ -1,4 +1,5 @@
-# Sphinx HTML book. Pin so local and CI match.
+# Sphinx HTML/PDF book. Pin so local and CI match.
 sphinx==8.2.3
 myst-parser==4.0.1
 furo==2024.8.6
+breathe==4.35.0

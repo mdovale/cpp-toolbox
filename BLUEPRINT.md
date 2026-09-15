@@ -146,13 +146,12 @@ Audience tone: explain ownership, UB, and lifetime the way we explain stiffness 
 
 ### Now (this revision)
 
-Constitution, catalog, directory tree, Cursor rules/skills/commands, a **CMake spine** (`dev` / `sanitize`, `toolbox/` + Catch2), and **Sphinx HTML**. PDF and Doxygen/Breathe are not wired yet. Do not invent a second layout or a second docs stack.
+Constitution, catalog, directory tree, Cursor rules/skills/commands, a **CMake spine**, **Sphinx HTML and PDF**, and Doxygen/Breathe for `toolbox/`. Do not invent a second layout or a second docs stack.
 
-### Next (docs PDF/API, then content)
+### Next (formatters, then content)
 
-1. Doxygen + Breathe for `toolbox/`; PDF via LaTeX; HTML and PDF in CI.
-2. clang-format and clang-tidy.
-3. Content along `docs/learning-path.md`.
+1. clang-format and clang-tidy.
+2. Content along `docs/learning-path.md` (start with `build-and-ub`).
 
 Presets: `dev` (warnings as errors, `compile_commands.json`), `sanitize` (ASan/UBSan), `docs`.
 

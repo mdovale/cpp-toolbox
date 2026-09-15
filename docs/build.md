@@ -1,6 +1,6 @@
 # Build and documentation toolchain
 
-**Status:** CMake spine and **Sphinx HTML** are in place. PDF (LaTeX) and Doxygen/Breathe are still planned. Do not introduce a competing stack (Make-only, mdBook, Doxygen-only, Meson, …). Constitution: `BLUEPRINT.md` at the repository root.
+**Status:** CMake, Sphinx HTML, Doxygen/Breathe, and PDF are in place. Citations (bibtex) and formatters are still planned. Do not introduce a competing stack. Constitution: `BLUEPRINT.md` at the repository root.
 
 ## CMake
 
@@ -17,7 +17,7 @@ C++20 at the root; an entry may request 23 via `add_toolbox_example(... STD 23)`
 |---|---|
 | `dev` | Warnings as errors, `compile_commands.json`, toolbox tests |
 | `sanitize` | Inherits `dev`, plus ASan + UBSan |
-| `docs` | Configure only (Sphinx targets come later) |
+| `docs` | Configure only (Sphinx is invoked via `scripts/build-docs.sh`, not this preset) |
 
 ```bash
 cmake --preset dev
@@ -39,24 +39,24 @@ c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o demo
 
 ## Documentation
 
-HTML is built with Sphinx + MyST. Doxygen, Breathe, bibtex, and PDF are still planned.
+HTML and PDF share the same MyST sources. Doxygen XML is generated from `docs/conf.py` before Sphinx runs. `sphinxcontrib-bibtex` is still planned.
 
 | Tool | Role |
 |---|---|
-| Sphinx + MyST | Narrative book (HTML, wired) |
-| Doxygen | API XML from `toolbox/` (planned) |
-| Breathe (optionally Exhale) | API into Sphinx (planned) |
-| sphinxcontrib-bibtex | Citations (planned) |
+| Sphinx + MyST | Narrative book |
+| Doxygen | API XML from `toolbox/include` |
+| Breathe | API into Sphinx (`docs/api.md`) |
 | `sphinx-build -b html` | HTML |
-| `sphinx-build -b latex` + `latexmk` | PDF (planned) |
+| `sphinx-build -b latex` + `latexmk` | PDF |
 
 ```bash
 source .venv/bin/activate
 pip install -r docs/requirements.txt
-sphinx-build -W -b html docs docs/_build/html
+./scripts/build-docs.sh          # HTML → docs/_build/html/index.html
+./scripts/build-docs.sh --pdf    # also docs/_build/latex/cpp-toolbox.pdf
 ```
 
-Open `docs/_build/html/index.html`. Generated output stays in `docs/_build/` (gitignored).
+Needs Doxygen on `PATH`. PDF also needs `latexmk` and a TeX engine (`pdflatex`). Generated output stays in `docs/_build/` (gitignored).
 
 ### How the book includes code
 
@@ -73,8 +73,8 @@ If that block is empty or missing, the HTML build must fail. Lesson pages use th
 ## Quality tools
 
 - Catch2 for `toolbox/` tests (wired)
+- GitHub Actions: `dev` + tests, HTML, and PDF
 - `.clang-format`, `.clang-tidy`, pre-commit (planned)
-- GitHub Actions: `dev` + tests on PRs; full tree + docs on `main` (planned)
 
 ## What not to do
 

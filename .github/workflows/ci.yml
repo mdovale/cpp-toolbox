@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ninja and a C++ compiler
+        run: sudo apt-get update && sudo apt-get install -y ninja-build g++
+      - name: Configure
+        run: cmake --preset dev
+      - name: Build
+        run: cmake --build --preset dev
+      - name: Test
+        run: ctest --preset dev
+
+  docs:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Doxygen and LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen latexmk texlive-latex-recommended \
+            texlive-latex-extra texlive-fonts-recommended
+      - name: Install Python docs deps
+        run: pip install -r docs/requirements.txt
+      - name: HTML
+        run: sphinx-build -W -b html docs docs/_build/html
+      - name: PDF
+        run: |
+          sphinx-build -W -b latex docs docs/_build/latex
+          (cd docs/_build/latex && latexmk -pdf -interaction=nonstopmode cpp-toolbox.tex)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cpp-toolbox-pdf
+          path: docs/_build/latex/cpp-toolbox.pdf
