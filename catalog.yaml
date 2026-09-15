@@ -51,14 +51,14 @@ entries:
     title: RAII, ownership, and views
     path: tutorials/02-raii-and-ownership
     status: planned
-  - id: error-handling
+  - id: cmake-app
     kind: tutorial
-    topic: language
+    topic: build
     difficulty: 2
     std: 20
-    tags: [exceptions, expected, error-handling]
-    title: Errors in laboratory C++
-    path: tutorials/03-error-handling
+    tags: [cmake, project-layout]
+    title: Structure a small CMake app
+    path: tutorials/03-cmake-app
     status: planned
   - id: floating-point
     kind: tutorial
@@ -69,23 +69,41 @@ entries:
     title: Floating point and numerical honesty
     path: tutorials/04-floating-point
     status: planned
-  - id: ranges-for-data
+  - id: error-handling
     kind: tutorial
     topic: language
     difficulty: 2
     std: 20
-    tags: [ranges, containers, algorithms]
-    title: Containers, algorithms, and ranges for scientific data
-    path: tutorials/05-ranges-for-data
+    tags: [exceptions, expected, error-handling]
+    title: Errors in laboratory C++
+    path: tutorials/05-error-handling
     status: planned
-  - id: parallel-stl
+  - id: small-linear-algebra
     kind: tutorial
-    topic: parallelism
+    topic: linear-algebra
+    difficulty: 2
+    std: 20
+    tags: [vectors, matrices, linear-algebra]
+    title: Small vectors and matrices
+    path: tutorials/06-small-linear-algebra
+    status: planned
+  - id: frames-and-rotations
+    kind: tutorial
+    topic: linear-algebra
     difficulty: 3
     std: 20
-    tags: [parallel-stl, threads]
-    title: Parallel STL and practical threading
-    path: tutorials/06-parallel-stl
+    tags: [rotations, euler-angles, frames]
+    title: Named frames and rotations
+    path: tutorials/07-frames-and-rotations
+    status: planned
+  - id: ode-rk4
+    kind: tutorial
+    topic: numerics
+    difficulty: 3
+    std: 20
+    tags: [ode, rk4, time-integration]
+    title: Time integration with RK4
+    path: tutorials/08-ode-rk4
     status: planned
   - id: engineering-io
     kind: tutorial
@@ -94,7 +112,7 @@ entries:
     std: 20
     tags: [files, csv]
     title: I/O for engineering data
-    path: tutorials/07-engineering-io
+    path: tutorials/09-engineering-io
     status: planned
   - id: testing-numerics
     kind: tutorial
@@ -103,23 +121,32 @@ entries:
     std: 20
     tags: [testing, tolerances, residuals]
     title: How to test numerical code
-    path: tutorials/08-testing-numerics
+    path: tutorials/10-testing-numerics
     status: planned
-  - id: cmake-app
+  - id: ranges-for-data
     kind: tutorial
-    topic: build
+    topic: language
     difficulty: 2
     std: 20
-    tags: [cmake, project-layout]
-    title: Structure a small CMake app
-    path: tutorials/09-cmake-app
+    tags: [ranges, containers, algorithms]
+    title: Containers, algorithms, and ranges for scientific data
+    path: tutorials/11-ranges-for-data
+    status: planned
+  - id: parallel-stl
+    kind: how-to
+    topic: parallelism
+    difficulty: 3
+    std: 20
+    tags: [parallel-stl, threads]
+    title: Use the parallel STL
+    path: how-to/parallel-stl
     status: planned
   - id: read-a-profile
-    kind: tutorial
+    kind: how-to
     topic: performance
     difficulty: 3
     std: 20
     tags: [profiling, measurement]
-    title: How to read a profiler output
-    path: tutorials/10-read-a-profile
+    title: Read a profiler output
+    path: how-to/read-a-profile
     status: planned
