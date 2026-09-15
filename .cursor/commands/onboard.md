@@ -20,7 +20,7 @@ start `/add-tutorial` unless the user asked for that *after* the briefing.
 
 2. Inspect **live** state (do not hardcode counts from memory):
    - Tally `catalog.yaml` `entries` by `kind` and `status`
-     (`planned` / `draft` / `complete`).
+     (`planned` / `draft` / `complete`), and `prose` on complete rows.
    - Name the first learning-path tutorial that is not `complete`.
    - Note whether CMake, Sphinx, and CI already exist (`docs/build.md`).
    - List slash commands from `.cursor/commands/`.
@@ -36,19 +36,21 @@ start `/add-tutorial` unless the user asked for that *after* the briefing.
    First-level split is pedagogical role, not C++ feature. Topics are
    the controlled list in `catalog.yaml`.
 
-   **Done means** — one vertical slice: compiling C++20, comments,
-   leaf `README.md`, `catalog.yaml` row, docs page that
-   `literalinclude`s `// start <id>` / `// end <id>`. Prefer one
-   complete entry over many stubs. `templates/` are copy-out; never
-   `add_subdirectory` them.
+   **Done means** — catalog slice: compiling C++20, comments,
+   leaf `README.md`, `catalog.yaml` row (`status: complete`), docs page that
+   `literalinclude`s `// start <id>` / `// end <id>`. Book chapter:
+   `prose: complete` per `docs/style.md` (hypotaxis, numbered math or
+   figure on spine tutorials, `{cite}`). Prefer one complete entry over
+   many stubs. `templates/` are copy-out; never `add_subdirectory` them.
 
-   **Catalog now** — counts by kind/status; next spine `id` and path.
+   **Catalog now** — counts by kind/status; tally `prose` on complete
+   rows; next spine `id` and path.
 
    **How to work here** — `/add-tutorial` (and siblings) → skill
-   `add-catalog-entry`; `/review-entry` before `status: complete`;
-   `/extract-toolbox` only after ~three copies. Conventional Commits
-   (50-char subject, 72-column body). One entry (or one tooling slice)
-   per change.
+   `add-catalog-entry`; `/review-entry` before `status: complete` and
+   before `prose: complete`; `/extract-toolbox` only after ~three copies.
+   Conventional Commits (50-char subject, 72-column body). One entry
+   (or one tooling slice) per change.
 
    **Tooling** — `cmake --preset dev` / `sanitize` / `docs`;
    `./scripts/build-docs.sh`; `pre-commit install`. Default build is

@@ -6,7 +6,11 @@ alwaysApply: false
 
 # Scientific numerics
 
-Assume calculus and linear algebra. Explain UB, races, and lifetime as ways results go silently wrong.
+Assume calculus and linear algebra. Explain UB, races, and lifetime as ways
+results go silently wrong, in the sense of **conditioning**: a small change in
+the data or in an assumption can change the output without a diagnostic.
+An unstable time step remains a well-defined recurrence; do not use it as the
+analogue for undefined evaluation.
 
 - State **units** and **dtype** (and why that dtype) at the data model.
 - Ship a **correctness check**: residual, invariant, manufactured solution, or a property (`isfinite`, conservation to a stated tolerance).

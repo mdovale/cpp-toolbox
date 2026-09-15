@@ -14,7 +14,7 @@ Write for a general **engineering and scientific** reader. Assume calculus, line
 - `const` by default. Encode ownership in the type (`unique_ptr`, containers, views) rather than in comments alone.
 - No `using namespace std;` in headers. In `main.cpp` of an example it is still discouraged.
 - Headers under `toolbox/` are self-contained, `#pragma once`, and live in `include/toolbox/`.
-- Name files and folders kebab-case on disk; C++ identifiers are `snake_case` functions/variables, `PascalCase` types, `kCamelCase` or `k_snake` for constexpr constants — pick `snake_case` for constexpr values unless matching a known formula (`R`, `kB`).
+- Name files and folders kebab-case on disk; C++ identifiers are `snake_case` functions/variables, `PascalCase` types, `kCamelCase` or `k_snake` for constexpr constants -- pick `snake_case` for constexpr values unless matching a known formula (`R`, `kB`).
 - Mark lesson regions for the book:
 
   ```cpp
@@ -34,7 +34,7 @@ Write for a general **engineering and scientific** reader. Assume calculus, line
 
 | Put in comments | Put in README / Sphinx |
 |---|---|
-| This invariant, this pitfall, this line’s units | Why the method, when to use it, alternatives |
+| This invariant, this pitfall, this line's units | Why the method, when to use it, alternatives |
 | Why a cast or a tolerance exists | Complexity, references, citations |
 | Pre/postconditions on a helper | See-also links to other catalog ids |
 
@@ -42,8 +42,29 @@ Doxygen (`///` or `/** */`) is for `toolbox/` APIs and reusable headers, not for
 
 ## Prose
 
-- American English, sentence case headings, short paragraphs.
-- Use MyST in `docs/` (`{literalinclude}`, `{cite}`, math via `$$...$$` or `$...$`).
+The Sphinx spine is written as a monograph chapter would be: hypotaxis,
+affirmative definition, numbered mathematics, and bibliographic citations.
+The leaf `README.md` is a lab card. Do not write the chapter into the README,
+and do not write the lab card into the chapter.
+
+- American English. Sentence-case headings name the job of the section
+  (``When this fails``), not a taxonomic label (``Background``).
+- A paragraph develops one claim. Subordinate clauses should carry the
+  logical relation (*because*, *so that*, *whereas*, *under which*). Do not
+  stack one-claim sentences that restate the previous line.
+- Define the object first. Use negation when a nearby confusion is real, and
+  then only once. Habitual couplets of the form "It is not X. It is Y." belong
+  in a FAQ, not in the chapter.
+- Analogies must be scoped ("in the sense that..."). Ownership, undefined
+  behavior, and lifetime are closer to **conditioning** (a small perturbation
+  of the data or of an assumption can change the result without a diagnostic)
+  than to an unstable time step, which remains a well-defined recurrence.
+- Epigrams and lab slang used as punch lines (thermocouples, landmines,
+  "the channel that speaks") are out of the book voice.
+- MyST in `docs/`: `{literalinclude}`, `{cite}`, `{eq}`, math via
+  `$$...$$` or `$...$`. Displayed mathematics on a spine tutorial must carry
+  a `{math}` label, or the page must include a numbered figure. Print uses
+  `pdflatex`; write ASCII or math (`$\dot{x}$`), not raw Unicode letters.
 - Never paste a full program into Markdown. Include the source:
 
   ````markdown
@@ -54,8 +75,13 @@ Doxygen (`///` or `/** */`) is for `toolbox/` APIs and reusable headers, not for
   ```
   ````
 
-- Cite papers with bibtex once that extension is enabled; until then, use a “References” list with full bibliographic entries.
+- Cite with `{cite}` keys from `docs/refs.bib`. The bibliography is
+  [references.md](references.md). Do not paste a second reference list into
+  the chapter.
 - Solutions: Sphinx dropdown on HTML; a Solutions appendix in PDF. Do not make the solution HTML-only.
+
+Specimen chapter: [tutorials/build-and-ub.md](tutorials/build-and-ub.md).
+Notation: [notation.md](notation.md).
 
 ## Formatting
 

@@ -23,9 +23,9 @@ Do not open a PR that only adds a `.cpp` with a promise to document it later.
    // end <id>
    ```
 
-4. **Write the leaf `README.md`**: what, when to use it, how to build, see-also. This page is included in the book.
-5. **Append a row to [`catalog.yaml`](catalog.yaml).** Use an existing topic from that file, or add a topic in the same change and say why.
-6. **Add a Sphinx page** under `docs/tutorials/`, `docs/how-to/`, `docs/examples/`, `docs/exercises/`, `docs/projects/`, or `docs/templates/` (filename = `id`) that `literalinclude`s the marked region (see [docs/style.md](docs/style.md)). Rebuild with `./scripts/build-docs.sh`.
+4. **Write the leaf `README.md`**: what, when to use it, how to build, see-also. This is the lab card, not the chapter.
+5. **Append a row to [`catalog.yaml`](catalog.yaml).** Use an existing topic from that file, or add a topic in the same change and say why. Set `prose: draft` until the Sphinx page meets [docs/style.md](docs/style.md).
+6. **Add a Sphinx page** under `docs/tutorials/`, `docs/how-to/`, `docs/examples/`, `docs/exercises/`, `docs/projects/`, or `docs/templates/` (filename = `id`) that `literalinclude`s the marked region (see [docs/style.md](docs/style.md)). Cite with `{cite}` from [docs/refs.bib](docs/refs.bib). Rebuild with `./scripts/build-docs.sh` and, when TeX is available, `./scripts/build-docs.sh --pdf`.
 7. **Build and sanity-check:** `cmake --preset dev --target <id>` then `ctest --preset dev` if you added tests. Repeat with the `sanitize` preset. The leaf must still compile by hand as `c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp`.
 
 ### Where it goes
@@ -43,15 +43,20 @@ Do not open a PR that only adds a `.cpp` with a promise to document it later.
 
 ## Style
 
-[docs/style.md](docs/style.md) covers C++ and narrative voice. Short version: RAII, no raw `new`, scientific tone, units and a correctness check on numeric work, comments for invariants and pitfalls, README for *why*. Format C++ with clang-format; `pre-commit install` after cloning.
+[docs/style.md](docs/style.md) covers C++ and narrative voice. The leaf README
+is a lab card; the Sphinx page is the chapter. Spine tutorials need a numbered
+equation or figure and `{cite}` keys from [docs/refs.bib](docs/refs.bib).
+Format C++ with clang-format; `pre-commit install` after cloning.
 
 ## Catalog status
 
-| Status | Meaning |
-|---|---|
-| `planned` | Row only; no folder required. Backlog. |
-| `draft` | Folder exists; slice not finished. Avoid merging. |
-| `complete` | Code, README, catalog, docs page all present. |
+| Field | Values | Meaning |
+|---|---|---|
+| `status` | `planned` | Row only; no folder required. Backlog. |
+| `status` | `draft` | Folder exists; slice not finished. Avoid merging. |
+| `status` | `complete` | Code, README, catalog, docs page all present. |
+| `prose` | `draft` | Chapter does not yet meet `docs/style.md`. Omit on `planned`. |
+| `prose` | `complete` | Voice, numbered math or figure, and `{cite}` are green. |
 
 ## Cursor
 

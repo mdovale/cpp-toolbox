@@ -21,5 +21,5 @@ If it is not in `catalog.yaml`, it is not in the book. Topics are the controlled
 
 - `status: complete` only when code, README, catalog row, and docs page all exist. `planned` is backlog (no folder required). Avoid merging `draft`.
 - Exercises: spoilers stay out of `prompt.md`. Solutions are a Sphinx dropdown (HTML) and a PDF appendix, never HTML-only.
-- Voice: engineering/scientific. Math is welcome. CS jargon needs an engineering consequence.
-- Skill `write-scientific-docs` for page shape; skill `review-catalog-entry` before you call it done.
+- Voice: hypotaxis and affirmative definition (`docs/style.md`). The Sphinx page is the chapter; the leaf README is the lab card. Skill `write-scientific-docs` for page shape; skill `review-catalog-entry` before you call it done. Spine tutorials need a numbered equation or figure and `{cite}` keys.
+- `status: complete` is the catalog slice. `prose: complete` is book quality. Omit `prose` on `planned` rows.

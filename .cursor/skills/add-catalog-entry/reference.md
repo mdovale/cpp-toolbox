@@ -12,6 +12,7 @@
     title: Sentence-case title
     path: tutorials/04-the-id
     status: complete
+    prose: complete
 ```
 
 ## Leaf README.md
@@ -36,7 +37,7 @@ Relative `literalinclude` from `docs/tutorials/the-id.md` to a spine tutorial:
 :end-before: // end the-id
 ```
 
-Wrap that in a MyST code fence (triple backticks, then `{literalinclude} ...`). Add **When this fails** and **References** (full bibliographic entries until bibtex is enabled).
+Wrap that in a MyST code fence (triple backticks, then `{literalinclude} ...`). Number at least one displayed equation (`{math}` with a label) or include a numbered figure. Cite with `{cite}` keys from `docs/refs.bib`; do not paste a reference list. Follow the voice spec in `docs/style.md`. Specimen: `docs/tutorials/build-and-ub.md`.
 
 ## Exercise prompt.md
 

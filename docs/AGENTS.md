@@ -1,9 +1,16 @@
 # Agent map — docs/
 
-You are in the Sphinx book source.
+You are in the Sphinx book source. `catalog.yaml` is the machine index;
+these pages are the monograph.
 
-- `index.md` is the homepage. Do not paste programs here; `literalinclude` marked regions from the matching leaf sources.
-- Follow skill `write-scientific-docs` and [style.md](style.md).
-- A new catalog entry needs a page in the same change.
-- Build HTML with `./scripts/build-docs.sh`. PDF: `./scripts/build-docs.sh --pdf`. Generated output belongs in `_build/` (gitignored), never committed.
-- Math and citations are welcome; CS jargon without an engineering consequence is not.
+- [index.md](index.md) is the preface. Do not paste programs here;
+  `literalinclude` marked regions from the matching leaf sources.
+- Spine tutorials follow skill `write-scientific-docs` and [style.md](style.md).
+  Specimen: [tutorials/build-and-ub.md](tutorials/build-and-ub.md).
+- Notation is frozen in [notation.md](notation.md). Citations go in
+  [refs.bib](refs.bib); the list is [references.md](references.md).
+- A new catalog entry needs a page in the same change. Set `prose: complete`
+  only when the voice checklist is green.
+- Build HTML with `./scripts/build-docs.sh`. PDF: `./scripts/build-docs.sh
+  --pdf` (required for spine chapters; `pdflatex` needs ASCII or math, not
+  raw Unicode). Generated output belongs in `_build/` (gitignored).

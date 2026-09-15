@@ -12,5 +12,5 @@ This repo is a **catalog of independently compilable C++ artifacts**, not one li
 - Docs `literalinclude` marked regions (`// start <id>` / `// end <id>`). Do not paste a second copy of the program into Markdown.
 - `toolbox/` stays tiny. Promote a helper only after ~three copies. Entries must still make sense copied alone.
 - `templates/` are copy-out. Never add them to the CMake superbuild.
-- C++20 floor. Planned toolchain is CMake + Sphinx + Doxygen ([docs/build.md](docs/build.md)); do not invent a second stack.
-- New entries: skill `add-catalog-entry`. Completeness: `/review-entry`.
+- C++20 floor. Toolchain is CMake + Sphinx + Doxygen + bibtex ([docs/build.md](docs/build.md)); do not invent a second stack.
+- New entries: skill `add-catalog-entry`. Completeness: `/review-entry` (`status` for the slice, `prose` for the chapter).

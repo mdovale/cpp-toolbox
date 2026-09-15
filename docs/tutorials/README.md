@@ -1,3 +1,11 @@
 # Tutorials (book)
 
-One page per tutorial `id` (`<id>.md`). `literalinclude` `tutorials/NN-<id>/`. Spine: [../learning-path.md](../learning-path.md).
+One chapter per tutorial `id` (`<id>.md`). `literalinclude` `tutorials/NN-<id>/`.
+Contents: [../learning-path.md](../learning-path.md). Specimen: [build-and-ub.md](build-and-ub.md).
+
+```{toctree}
+:maxdepth: 1
+:caption: Chapters
+
+build-and-ub
+```

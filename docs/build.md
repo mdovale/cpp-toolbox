@@ -1,6 +1,6 @@
 # Build and documentation toolchain
 
-**Status:** CMake, Sphinx HTML/PDF, Doxygen/Breathe, CI, and clang-format/tidy are in place. Citations (bibtex) are still planned. Do not introduce a competing stack. Constitution: `BLUEPRINT.md` at the repository root.
+**Status:** CMake, Sphinx HTML/PDF, Doxygen/Breathe, sphinxcontrib-bibtex, CI, and clang-format/tidy are in place. Do not introduce a competing stack. Constitution: `BLUEPRINT.md` at the repository root.
 
 ## CMake
 
@@ -8,7 +8,7 @@ C++20 at the root; an entry may request 23 via `add_toolbox_example(... STD 23)`
 
 - `add_toolbox_example()` registers one executable per lesson. No mega-binary of demos.
 - `templates/` are never in-tree targets.
-- Catch2 is fetched pinned (`v3.8.1`) when `TOOLBOX_BUILD_TESTING` is ON. Other libraries only when an entry’s README explains why.
+- Catch2 is fetched pinned (`v3.8.1`) when `TOOLBOX_BUILD_TESTING` is ON. Other libraries only when an entry's README explains why.
 - `CMAKE_EXPORT_COMPILE_COMMANDS` is ON (`build/dev/compile_commands.json`).
 
 ### Presets
@@ -42,7 +42,7 @@ c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o demo
 
 ## Documentation
 
-HTML and PDF share the same MyST sources. Doxygen XML is generated from `docs/conf.py` before Sphinx runs. `sphinxcontrib-bibtex` is still planned.
+HTML and PDF share the same MyST sources. Doxygen XML is generated from `docs/conf.py` before Sphinx runs. Citations come from `docs/refs.bib` via `sphinxcontrib-bibtex`. Print is `pdflatex`: write ASCII or math in MyST, not raw Unicode letters. PDF is a gate for spine chapters (`./scripts/build-docs.sh --pdf`).
 
 | Tool | Role |
 |---|---|
@@ -82,6 +82,6 @@ If that block is empty or missing, the HTML build must fail. Lesson pages use th
 
 ## What not to do
 
-- Do not add a second build entry point (`Makefile` at the root that becomes the real system, a `meson.build`, …).
+- Do not add a second build entry point (`Makefile` at the root that becomes the real system, a `meson.build`, ...).
 - Do not check in generated HTML/PDF or `build/`.
-- Do not add heavy dependencies “to get started.”
+- Do not add heavy dependencies "to get started."

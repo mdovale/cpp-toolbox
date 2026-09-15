@@ -108,8 +108,14 @@ Required fields per entry:
 | `title` | Human title, sentence case |
 | `path` | Repo-relative directory |
 | `status` | `planned` \| `draft` \| `complete` |
+| `prose` | `draft` \| `complete` (omit on `planned`) |
 
-An entry is `complete` only when code, comments, leaf README, catalog row, and docs page all exist. Planned rows may exist without a folder; they are the backlog.
+An entry is `status: complete` only when code, comments, leaf README, catalog
+row, and docs page all exist. That is the catalog slice. `prose: complete`
+means the Sphinx page also meets the voice spec in `docs/style.md` (hypotaxis,
+affirmative definition, numbered equation or figure, `{cite}`). A slice may
+ship with `prose: draft`; a spine tutorial should not. Planned rows may exist
+without a folder; they are the backlog and omit `prose`.
 
 ## Documentation
 
@@ -118,8 +124,13 @@ An entry is `complete` only when code, comments, leaf README, catalog row, and d
 Contract:
 
 - **Comments in code** explain this line, this invariant, this numerical pitfall.
-- **Leaf README + Sphinx pages** explain why, when to use it, alternatives, complexity, and caveats.
+- **Leaf README** is a lab card: what, when, how to build, see-also.
+- **Sphinx spine pages** are the monograph chapters: why, mathematics,
+  citations, failure modes. Voice: `docs/style.md`.
 - **Doxygen** is for `toolbox/` and reusable headers, not for dumping a tutorial into `/** */`.
+- **Bibliography** is `docs/refs.bib` via `sphinxcontrib-bibtex`.
+- Each spine tutorial includes at least one numbered displayed equation or
+  one numbered figure.
 
 Mark regions for inclusion:
 
@@ -131,7 +142,10 @@ Mark regions for inclusion:
 
 Sphinx pages use `literalinclude` with `:start-after:` / `:end-before:`. Solutions may be a Sphinx dropdown in HTML and a “Solutions” appendix in PDF — never HTML-only.
 
-Audience tone: explain ownership, UB, and lifetime the way we explain stiffness or conditioning: as things that make results silently wrong.
+Audience tone: explain ownership, undefined behavior, and lifetime the way we
+explain conditioning: a small perturbation can change the result without a
+diagnostic. Scope every analogy. Unstable time stepping remains a defined
+recurrence and is the wrong analogue for undefined evaluation.
 
 ## C++ bar
 
@@ -146,11 +160,15 @@ Audience tone: explain ownership, UB, and lifetime the way we explain stiffness 
 
 ### Now (this revision)
 
-Constitution, catalog, directory tree, Cursor rules/skills/commands, CMake, Sphinx HTML/PDF, Doxygen/Breathe, CI, and clang-format/tidy. Do not invent a second layout or a second docs stack.
+Constitution, catalog, directory tree, Cursor rules/skills/commands, CMake,
+Sphinx HTML/PDF, Doxygen/Breathe, sphinxcontrib-bibtex, CI, and
+clang-format/tidy. Do not invent a second layout or a second docs stack.
 
 ### Next (content)
 
-Content along `docs/learning-path.md` (start with `build-and-ub`).
+Content along `docs/learning-path.md`. Chapter 1 (`build-and-ub`) is the
+prose specimen; fill later spine ids as vertical slices that also meet
+`prose: complete`.
 
 Presets: `dev` (warnings as errors, `compile_commands.json`), `sanitize` (ASan/UBSan), `docs`.
 
@@ -179,7 +197,9 @@ Default configure builds `toolbox` tests and the `tutorials` group. Examples and
 
 | Decision | Choice | Why |
 |---|---|---|
-| Docs stack | Sphinx + MyST + Doxygen + Breathe | HTML and PDF, math, citations, `literalinclude` |
+| Docs stack | Sphinx + MyST + Doxygen + Breathe + bibtex | HTML and PDF, math, citations, `literalinclude` |
+| Book vs catalog | Spine chapters vs `catalog.yaml` | The book is the Sphinx spine; the YAML is the machine index |
+| Prose | Hypotaxis, `{cite}`, numbered math | `prose: complete` is separate from `status: complete` |
 | C++ floor | C++20 | Ranges, `span`, concepts; still realistic in labs |
 | Catalog | `catalog.yaml` | One index for CMake, Sphinx, and humans |
 | Shared code | Tiny header-only `toolbox/` | Copyable folders; extract under pressure |

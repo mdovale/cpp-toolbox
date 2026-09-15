@@ -8,6 +8,7 @@
 | `commands/` | Slash shortcuts | User types `/onboard`, `/add-tutorial`, `/review-entry`, … |
 
 Do not duplicate BLUEPRINT here. Skills implement CONTRIBUTING; rules enforce it.
+`/review-entry` reports both `status` (catalog slice) and `prose` (chapter).
 
 ## Commands
 

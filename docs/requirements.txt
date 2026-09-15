@@ -3,3 +3,4 @@ sphinx==8.2.3
 myst-parser==4.0.1
 furo==2024.8.6
 breathe==4.35.0
+sphinxcontrib-bibtex==2.6.3

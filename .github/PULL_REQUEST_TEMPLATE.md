@@ -10,6 +10,7 @@
 
 - [ ] Folder lives under the correct kind (`tutorials/`, `how-to/`, `examples/`, `exercises/`, `projects/`, `templates/`)
 - [ ] `catalog.yaml` row; `status: complete` only if the rest of this list is true
+- [ ] `prose: complete` only if the Sphinx page meets `docs/style.md` (hypotaxis, numbered math or figure on spine tutorials, `{cite}`)
 - [ ] Compiling C++20 (exercise: `starter/` and `solution/` both compile)
 - [ ] `// start <id>` / `// end <id>` markers for docs includes
 - [ ] Leaf `README.md` (what, when, build, see-also)

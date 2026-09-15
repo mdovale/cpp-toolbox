@@ -6,7 +6,8 @@
 # topic:      one of the vocabulary below (add a topic only on purpose)
 # difficulty: 1 intro … 3 needs numerical care … 5 project-scale
 # std:        20 | 23  (C++20 floor; 23 only when the lesson needs it)
-# status:     planned | draft | complete
+# status:     planned | draft | complete   (catalog slice)
+# prose:      draft | complete             (book chapter; omit on planned)
 #
 # Topics (controlled vocabulary):
 #   language      — ownership, types, ranges, error handling, C++ as used in labs
@@ -41,7 +42,8 @@ entries:
     tags: [sanitizers, undefined-behavior, cmake]
     title: Build, sanitizers, and what UB looks like
     path: tutorials/01-build-and-ub
-    status: planned
+    status: complete
+    prose: complete
   - id: raii-and-ownership
     kind: tutorial
     topic: language

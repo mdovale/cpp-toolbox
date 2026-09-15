@@ -2,9 +2,9 @@
 name: review-catalog-entry
 description: >-
   Reviews a cpp-toolbox catalog entry for completeness, C++ practice, numerical
-  honesty, and docs/code sync. Use before marking catalog status complete, when
-  reviewing a tutorial/example/exercise/project, or when the user runs
-  /review-entry.
+  honesty, docs/code sync, and book prose. Use before marking catalog status
+  complete, when reviewing a tutorial/example/exercise/project, or when the
+  user runs /review-entry.
 ---
 
 # Review a catalog entry
@@ -22,11 +22,11 @@ Identify the entry (`id`, path, kind) from the user, the open files, or `catalog
 - [ ] `topic` is in the controlled vocabulary
 - [ ] `templates/` not referenced from CMake
 
-**Slice**
+**Slice** (`status: complete`)
 
 - [ ] Compiling C++20 (exercise: `starter/` and `solution/` both compile)
 - [ ] `// start <id>` / `// end <id>` present
-- [ ] Leaf `README.md`: what, when, build, see-also
+- [ ] Leaf `README.md`: what, when, build, see-also (lab card, not the chapter)
 - [ ] `docs/` page `literalinclude`s the marked region (no pasted program)
 - [ ] `status: complete` only if every box above is true
 
@@ -42,16 +42,23 @@ Identify the entry (`id`, path, kind) from the user, the open files, or `catalog
 - [ ] Correctness check present
 - [ ] Failure mode named when the method is fragile
 
-**Docs voice**
+**Prose** (`prose: complete`; spec in `docs/style.md`)
 
-- [ ] Scientific/engineering tone
+- [ ] Scientific/engineering tone; hypotaxis; affirmative definition
+- [ ] Analogies scoped; UB/lifetime not equated with an unstable time step
+- [ ] Spine tutorial: numbered `{math}` or numbered figure
+- [ ] Citations are `{cite}` from `docs/refs.bib`, not a pasted list
 - [ ] Exercise prompt has no spoilers
+- [ ] `prose: complete` only if every box in this section is true; otherwise `prose: draft`
+
+A slice may be `status: complete` with `prose: draft`. Spine tutorials should not ship that way.
 
 ## Output format
 
 ```text
 Entry: <id> (<kind>) at <path>
 Verdict: complete | draft | blocked
+Prose: complete | draft
 Gaps:
 - ...
 ```

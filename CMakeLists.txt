@@ -65,7 +65,7 @@ if(TOOLBOX_BUILD_DOCS)
   find_package(Python3 COMPONENTS Interpreter REQUIRED)
   find_program(DOXYGEN_EXECUTABLE doxygen REQUIRED)
   execute_process(
-    COMMAND "${Python3_EXECUTABLE}" -c "import sphinx, breathe, myst_parser"
+    COMMAND "${Python3_EXECUTABLE}" -c "import sphinx, breathe, myst_parser, sphinxcontrib.bibtex"
     RESULT_VARIABLE _toolbox_sphinx_ok
   )
   if(NOT _toolbox_sphinx_ok EQUAL 0)

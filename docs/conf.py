@@ -40,10 +40,15 @@ _run_doxygen()
 extensions = [
     "myst_parser",
     "breathe",
+    "sphinxcontrib.bibtex",
 ]
 
 breathe_projects = {"toolbox": str(DOXY_XML)}
 breathe_default_project = "toolbox"
+
+bibtex_bibfiles = ["refs.bib"]
+bibtex_default_style = "plain"
+bibtex_reference_style = "author_year"
 
 myst_enable_extensions = [
     "colon_fence",
@@ -54,6 +59,11 @@ myst_enable_extensions = [
 ]
 
 myst_heading_anchors = 3
+myst_dmath_allow_labels = True
+
+numfig = True
+math_numfig = True
+numfig_secnum_depth = 1
 
 exclude_patterns = [
     "_build",
@@ -77,6 +87,7 @@ latex_documents = [
 latex_elements = {
     "papersize": "letterpaper",
     "pointsize": "11pt",
+    "preamble": r"\setlength{\headheight}{14pt}",
 }
 
 nitpicky = True
