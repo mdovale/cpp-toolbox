@@ -17,6 +17,7 @@ DOXY_XML = DOCS_DIR / "_build" / "doxygen" / "xml"
 
 def _run_doxygen() -> None:
     doxyfile = DOCS_DIR / "Doxyfile"
+    (DOCS_DIR / "_build" / "doxygen").mkdir(parents=True, exist_ok=True)
     result = subprocess.run(
         ["doxygen", str(doxyfile)],
         cwd=DOCS_DIR,
