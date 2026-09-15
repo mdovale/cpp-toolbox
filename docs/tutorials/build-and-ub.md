@@ -1,25 +1,28 @@
 # Build, sanitizers, and what UB looks like
 
+```{index} undefined behavior
+```
+
+```{index} AddressSanitizer
+```
+
+```{index} UndefinedBehaviorSanitizer
+```
+
 This is chapter 1 of the [contents](../learning-path.md). It assumes no
 prior catalog entry. The next spine ids are `raii-and-ownership` and
 `cmake-app`; those chapters are not yet written.
 
-Undefined behavior {index}`undefined behavior` withdraws the language's
-guarantee that the executable remains a semantics for the program text
+Undefined behavior withdraws the language's guarantee that the
+executable remains a semantics for the program text
 {cite}`iso14882-2020`. Once an evaluation is undefined, the
 International Standard imposes no requirement on the observable
 behavior of the execution, so a finite voltage may still be written to
-the output stream. That situation is closer to an ill-conditioned
-computation, in which a small perturbation of the data produces a large
-perturbation of the result without a diagnostic from the arithmetic,
-than to an unstable time discretization, which remains a well-defined
-recurrence and is often revealed by growth of a residual. The rest of
-the book is compiled under warnings-as-errors and under
-{index}`AddressSanitizer` together with
-{index}`UndefinedBehaviorSanitizer`
-{cite}`serebryany2012,llvm-ubsan`, which is why this chapter comes
-first: later numerical claims are only as trustworthy as the build that
-produced them.
+the output stream. The rest of the book is compiled under
+warnings-as-errors and under `AddressSanitizer` together with
+`UndefinedBehaviorSanitizer` {cite}`serebryany2012,llvm-ubsan`, which
+is why this chapter comes first: later numerical claims are only as
+trustworthy as the build that produced them.
 
 ## Two presets
 
@@ -97,10 +100,8 @@ $\{v_i\}_{i=0}^{n-1}$. Without sanitizers the load is undefined, so the
 printed mean may lie near $2.5\,\mathrm{V}$, may be wild, or may crash
 in a caller that did not contain the index. Under high optimization the
 compiler may delete later checks, because it is allowed to assume the
-out-of-range index never occurs, in the same sense that a stability
-proof is silent once $\Delta t$ leaves the region in which the theorem
-was stated. A plausible printed voltage is therefore not evidence that
-{eq}`mean-volts` was formed.
+out-of-range index never occurs. A plausible printed voltage is
+therefore not evidence that {eq}`mean-volts` was formed.
 
 `std::span::at` and `std::vector::at` throw `std::out_of_range`. That
 evaluation is defined and still a failed experiment. The lesson uses
@@ -124,18 +125,55 @@ c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror \
 /tmp/build-and-ub --broken
 ```
 
-AddressSanitizer intercepts the out-of-range load by poisoning a
-redzone adjacent to the four-element heap allocation, in the same
-operational sense that a finite-volume scheme plants guard cells at a
-domain boundary {cite}`serebryany2012`. The report identifies a read of
-eight bytes---one object of type `double` on the platforms considered
-here---originating in `mean_volts_one_based` and targeting storage
-immediately past the buffer constructed in `main`. Non-zero termination
-is the intended outcome of the demonstration: the tool is operating
-within its specification.
+`AddressSanitizer` intercepts the out-of-range load by poisoning a
+redzone adjacent to the four-element heap allocation
+{cite}`serebryany2012`. A report looks like the excerpt below. Process
+ids, addresses, and C++ name mangling differ by platform and standard
+library; the structure of the message does not.
 
-The defect is spatial, so AddressSanitizer is the instrument that
-fires. UndefinedBehaviorSanitizer in the same preset catches a
+```text
+ERROR: AddressSanitizer: heap-buffer-overflow on address ...
+READ of size 8 at ... thread T0
+    #0 ... mean_volts_one_based(...) main.cpp:35
+    #1 ... main main.cpp:60
+    [...]
+
+... is located 0 bytes after 32-byte region [...]
+allocated by thread T0 here:
+    [...]
+    ... vector ... main.cpp:48
+    [...]
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow main.cpp:35
+    in ... mean_volts_one_based(...)
+
+Shadow bytes around the buggy address:
+  ...
+=>...:[fa]...
+  [...]
+```
+
+Read it as a measurement of the program, not as compiler noise:
+
+- `heap-buffer-overflow` names a spatial error: the access left the
+  allocation that holds the samples.
+- `READ of size 8` is one object of type `double` on the platforms
+  considered here.
+- Frame `#0` is the load in `mean_volts_one_based`; `#1` is the caller
+  in `main`.
+- `0 bytes after 32-byte region` is the first byte past four
+  `double`s, which is index $n$ on a record of length $n$.
+- The allocation stack points at the `std::vector` constructed in
+  `main`.
+- `[fa]` in the shadow map is the heap redzone (eight application
+  bytes per shadow byte). The rest of the map can be ignored on a
+  first reading.
+
+Non-zero termination is the intended outcome of the demonstration: the
+tool is operating within its specification.
+
+The defect is spatial, so `AddressSanitizer` is the instrument that
+fires. `UndefinedBehaviorSanitizer` in the same preset catches a
 different class of silent wrongness (signed overflow, invalid shifts,
 misaligned access) {cite}`llvm-ubsan`. The `dev` preset will compile
 `--broken` and may even run it, leaving the out-of-range load
@@ -146,9 +184,10 @@ uninstrumented. Build with `sanitize` when the number matters.
 Bounds-checked access (`.at()`, or a checked span) converts the mistake
 into an exception: defined, loud, and still a failed experiment.
 Valgrind Memcheck is complementary and slower; in this repository the
-`sanitize` preset remains the required instrument. A default `main` that always
-triggers undefined behavior would make `cmake --preset sanitize`
-unusable, which is why the poisonous path stays behind `--broken`.
+`sanitize` preset remains the required instrument. A default `main`
+that always triggers undefined behavior would make
+`cmake --preset sanitize` unusable, which is why the poisonous path
+stays behind `--broken`.
 
 Turning sanitizers off in order to clear a log removes the measurement
 rather than the defect.
