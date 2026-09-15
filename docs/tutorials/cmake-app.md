@@ -10,8 +10,8 @@
 ```
 
 This is chapter 3 of the [contents](../learning-path.md). It depends on
-[raii-and-ownership](raii-and-ownership.md). The next spine id is
-`floating-point`; that chapter is not yet written.
+[raii-and-ownership](raii-and-ownership.md). The next spine chapter is
+[floating-point](floating-point.md). `error-handling` remains planned.
 
 A laboratory program outgrows one translation unit as soon as a helper
 is worth a name. The declaration lives in a header, the definition in

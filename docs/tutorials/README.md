@@ -10,4 +10,5 @@ Contents: [../learning-path.md](../learning-path.md). Specimen: [build-and-ub.md
 build-and-ub
 raii-and-ownership
 cmake-app
+floating-point
 ```

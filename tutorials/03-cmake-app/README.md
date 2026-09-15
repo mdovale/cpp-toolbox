@@ -57,5 +57,4 @@ c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror \
 
 - `raii-and-ownership`: prior spine item; the helper this folder splits
   out, and who owns the buffer the span names.
-- `floating-point` (planned): next spine item; rounding and
-  cancellation.
+- `floating-point`: next spine item; rounding and cancellation.

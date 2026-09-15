@@ -72,7 +72,8 @@ entries:
     tags: [floating-point, rounding, cancellation]
     title: Floating point and numerical honesty
     path: tutorials/04-floating-point
-    status: planned
+    status: complete
+    prose: complete
   - id: error-handling
     kind: tutorial
     topic: language
