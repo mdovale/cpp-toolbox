@@ -112,7 +112,8 @@ entries:
     tags: [ode, rk4, time-integration]
     title: Time integration with RK4
     path: tutorials/08-ode-rk4
-    status: planned
+    status: complete
+    prose: complete
   - id: engineering-io
     kind: tutorial
     topic: io

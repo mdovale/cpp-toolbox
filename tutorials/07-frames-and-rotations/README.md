@@ -63,4 +63,4 @@ angles. Time integration is the next spine item.
 
 - `small-linear-algebra`: prior spine item; column-major 3-by-3 maps.
   This chapter names the frames that those maps connect.
-- `ode-rk4` (planned): next spine item; time integration with RK4.
+- `ode-rk4`: next spine item; time integration with RK4.

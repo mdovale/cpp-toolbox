@@ -38,9 +38,14 @@ A named frame is a label on a 3-vector or on $R$, written in
 identifiers (`x_lab_m`, `r_lab_from_body`), not a C++ type.
 $x_{\mathrm{lab}} = R x_{\mathrm{body}}$ with $R$ column-major as in
 chapter 6. Euler angles in this book are ZYX (yaw $\psi$, pitch
-$\theta$, roll $\phi$) in radians. Do not write $\dot{x}$ for a time
-derivative until chapter 8; the contents table uses that symbol only
-to name the ODE lesson.
+$\theta$, roll $\phi$) in radians.
+
+## Time integration (from chapter 8)
+
+Independent variable $t$ is seconds. A scalar laboratory state $v$ in
+this chapter is volts. $\dot{v}=f(v,t)$ is the ODE, with $f$ in V/s.
+The step $\Delta t$ is seconds. Classical RK4 is the four-stage
+explicit map of chapter 8.
 
 ## Typography in this book
 

@@ -14,4 +14,5 @@ floating-point
 error-handling
 small-linear-algebra
 frames-and-rotations
+ode-rk4
 ```

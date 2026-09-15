@@ -10,8 +10,8 @@
 ```
 
 This is chapter 7 of the [contents](../learning-path.md). It depends on
-[small-linear-algebra](small-linear-algebra.md). The next spine id is
-`ode-rk4`; that chapter is not yet written.
+[small-linear-algebra](small-linear-algebra.md). The next spine chapter
+is [ode-rk4](ode-rk4.md).
 
 The three components of a laboratory 3-vector are coordinates in a
 named frame. A rotation $R$ maps those coordinates from one frame into
@@ -108,8 +108,8 @@ miss; this leaf keeps the labels in the identifier. Eigen's
 `AngleAxis` and `Quaternion` belong when the rotation is no longer
 nine entries and two labels.
 
-The next spine item, `ode-rk4`, integrates a toy ODE in time. This
-chapter is the named $R$ that a later attitude or mechanics model will
-apply at a sample.
+The next spine chapter, [ode-rk4](ode-rk4.md), integrates a toy ODE in
+time. This chapter is the named $R$ that a later attitude or mechanics
+model will apply at a sample.
 
 Cited works are collected in {doc}`/references`.
