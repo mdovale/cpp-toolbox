@@ -19,6 +19,7 @@ This repository is a **catalog of C++ teaching artifacts**, not a single library
 | Task | Start here |
 |---|---|
 | Intention, layout, tooling | `BLUEPRINT.md` |
+| Onboard a session | `/onboard` |
 | Add an entry | Skill `add-catalog-entry`; commands `/add-tutorial` etc. |
 | C++ style | `.cursor/rules/cpp-standards.mdc`, `docs/style.md` |
 | Docs / Sphinx | Skill `write-scientific-docs`, `docs/style.md` |

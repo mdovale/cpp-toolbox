@@ -57,7 +57,7 @@ New entries are **vertical slices**: code, comments, a leaf `README.md`, a `cata
 - Agents: [AGENTS.md](AGENTS.md)
 - Constitution: [BLUEPRINT.md](BLUEPRINT.md)
 
-In Cursor, `/add-tutorial`, `/add-howto`, `/add-example`, `/add-exercise`, `/add-project`, and `/add-template` run the add-entry workflow.
+In Cursor, `/onboard` briefs the repo; `/add-tutorial`, `/add-howto`, `/add-example`, `/add-exercise`, `/add-project`, and `/add-template` run the add-entry workflow.
 
 ## License
 

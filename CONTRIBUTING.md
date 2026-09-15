@@ -55,9 +55,10 @@ Do not open a PR that only adds a `.cpp` with a promise to document it later.
 
 ## Cursor
 
-Slash commands (pin the kind, then follow `add-catalog-entry`). Layout of rules/skills/commands: [.cursor/README.md](.cursor/README.md).
+Slash commands. Layout of rules/skills/commands: [.cursor/README.md](.cursor/README.md).
 
-- `/add-tutorial`, `/add-howto`, `/add-example`, `/add-exercise`, `/add-project`, `/add-template`
+- `/onboard` — intention, layout, catalog status, and next work
+- `/add-tutorial`, `/add-howto`, `/add-example`, `/add-exercise`, `/add-project`, `/add-template` (pin the kind, then follow `add-catalog-entry`)
 - `/review-entry` — completeness checklist
 - `/extract-toolbox` — promote a helper after repeated copies
 
