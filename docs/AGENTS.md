@@ -11,6 +11,7 @@ these pages are the monograph.
   [refs.bib](refs.bib); the list is [references.md](references.md).
 - A new catalog entry needs a page in the same change. Set `prose: complete`
   only when the voice checklist is green.
-- Build HTML with `./scripts/build-docs.sh`. PDF: `./scripts/build-docs.sh
-  --pdf` (required for spine chapters; `pdflatex` needs ASCII or math, not
-  raw Unicode). Generated output belongs in `_build/` (gitignored).
+- Build HTML with `./scripts/build-docs.sh` or `/build-docs`. PDF:
+  `./scripts/build-docs.sh --pdf` or `/build-docs --pdf` (required for
+  spine chapters; `pdflatex` needs ASCII or math, not raw Unicode).
+  Generated output belongs in `_build/` (gitignored).

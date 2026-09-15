@@ -53,9 +53,9 @@ start `/add-tutorial` unless the user asked for that *after* the briefing.
    (or one tooling slice) per change.
 
    **Tooling** — `cmake --preset dev` / `sanitize` / `docs`;
-   `./scripts/build-docs.sh`; `pre-commit install`. Default build is
-   toolbox tests + tutorials; how-tos/examples/projects need
-   `-DTOOLBOX_BUILD_EXAMPLES=ON`.
+   `/build-docs` (`./scripts/build-docs.sh`; `--pdf` for PDF);
+   `pre-commit install`. Default build is toolbox tests + tutorials;
+   how-tos/examples/projects need `-DTOOLBOX_BUILD_EXAMPLES=ON`.
 
    **Suggested next step** — fill the next planned spine tutorial
    unless the user named a different task. Extra arguments after this

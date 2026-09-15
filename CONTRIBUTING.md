@@ -64,7 +64,8 @@ Slash commands. Layout of rules/skills/commands: [.cursor/README.md](.cursor/REA
 
 - `/onboard` — intention, layout, catalog status, and next work
 - `/add-tutorial`, `/add-howto`, `/add-example`, `/add-exercise`, `/add-project`, `/add-template` (pin the kind, then follow `add-catalog-entry`)
-- `/review-entry` — completeness checklist
+- `/review-entry` — completeness checklist (`status` and `prose`)
+- `/build-docs` — Sphinx HTML (`./scripts/build-docs.sh`); `--pdf` for PDF
 - `/extract-toolbox` — promote a helper after repeated copies
 
 ## Pull requests

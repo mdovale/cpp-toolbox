@@ -22,4 +22,5 @@ Do not duplicate BLUEPRINT here. Skills implement CONTRIBUTING; rules enforce it
 | `/add-project` | `add-catalog-entry` (`kind: project`) |
 | `/add-template` | `add-catalog-entry` (`kind: template`) |
 | `/review-entry` | `review-catalog-entry` |
+| `/build-docs` | (none; runs `./scripts/build-docs.sh`) |
 | `/extract-toolbox` | `extract-to-toolbox` |

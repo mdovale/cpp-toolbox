@@ -59,6 +59,8 @@ pip install -r docs/requirements.txt
 ./scripts/build-docs.sh --pdf    # also docs/_build/latex/cpp-toolbox.pdf
 ```
 
+In Cursor, `/build-docs` runs the same script; `/build-docs --pdf` adds PDF.
+
 Needs Doxygen on `PATH`. PDF also needs `latexmk` and a TeX engine (`pdflatex`). Generated output stays in `docs/_build/` (gitignored).
 
 ### How the book includes code

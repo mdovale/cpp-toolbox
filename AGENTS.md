@@ -24,6 +24,7 @@ This repository is a **catalog of C++ teaching artifacts**, not a single library
 | C++ style | `.cursor/rules/cpp-standards.mdc`, `docs/style.md` |
 | Docs / Sphinx | Skill `write-scientific-docs`, `docs/style.md`, `docs/notation.md` |
 | Completeness check | Skill `review-catalog-entry` or `/review-entry` (`status` and `prose`) |
+| Build the book | `/build-docs` (`./scripts/build-docs.sh`; `--pdf` for PDF) |
 | Spine / contents | `docs/learning-path.md` |
 | Promote shared code | Skill `extract-to-toolbox` |
 | Human recipe | `CONTRIBUTING.md` |
