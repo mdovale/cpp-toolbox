@@ -57,6 +57,6 @@ Doxygen (`///` or `/** */`) is for `toolbox/` APIs and reusable headers, not for
 - Cite papers with bibtex once that extension is enabled; until then, use a “References” list with full bibliographic entries.
 - Solutions: Sphinx dropdown on HTML; a Solutions appendix in PDF. Do not make the solution HTML-only.
 
-## Formatting (once the spine exists)
+## Formatting
 
-clang-format and clang-tidy are the mechanical style. Do not hand-format against them. Until those files exist, follow this document and keep includes ordered: corresponding header, then C++ library, then third-party, then project.
+clang-format and clang-tidy are the mechanical style. Do not hand-format against them. Include order: C++ library, then third-party, then `toolbox/` / project headers.

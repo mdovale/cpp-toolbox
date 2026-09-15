@@ -1,6 +1,6 @@
 # Build and documentation toolchain
 
-**Status:** CMake, Sphinx HTML, Doxygen/Breathe, and PDF are in place. Citations (bibtex) and formatters are still planned. Do not introduce a competing stack. Constitution: `BLUEPRINT.md` at the repository root.
+**Status:** CMake, Sphinx HTML/PDF, Doxygen/Breathe, CI, and clang-format/tidy are in place. Citations (bibtex) are still planned. Do not introduce a competing stack. Constitution: `BLUEPRINT.md` at the repository root.
 
 ## CMake
 
@@ -17,7 +17,7 @@ C++20 at the root; an entry may request 23 via `add_toolbox_example(... STD 23)`
 |---|---|
 | `dev` | Warnings as errors, `compile_commands.json`, toolbox tests |
 | `sanitize` | Inherits `dev`, plus ASan + UBSan |
-| `docs` | Configure only (Sphinx is invoked via `scripts/build-docs.sh`, not this preset) |
+| `docs` | `TOOLBOX_BUILD_DOCS=ON`; targets `docs-html` and `docs-pdf` |
 
 ```bash
 cmake --preset dev
@@ -27,6 +27,9 @@ ctest --preset dev
 cmake --preset sanitize
 cmake --build --preset sanitize
 ctest --preset sanitize
+
+cmake --preset docs
+cmake --build --preset docs --target docs-html
 ```
 
 Default build: `toolbox` tests + any `tutorials/*/main.cpp` that exist. How-tos, examples, exercises, and projects: `-DTOOLBOX_BUILD_EXAMPLES=ON`.
@@ -72,9 +75,10 @@ If that block is empty or missing, the HTML build must fail. Lesson pages use th
 
 ## Quality tools
 
-- Catch2 for `toolbox/` tests (wired)
-- GitHub Actions: `dev` + tests, HTML, and PDF
-- `.clang-format`, `.clang-tidy`, pre-commit (planned)
+- Catch2 for `toolbox/` tests
+- GitHub Actions: `dev` tests, `sanitize` tests, pre-commit + clang-tidy, HTML, and PDF
+- `.clang-format` and `.clang-tidy` at the repo root (`clang-tidy` on `toolbox/include` headers)
+- pre-commit: `pre-commit install` (from `.venv` after `pip install pre-commit`)
 
 ## What not to do
 

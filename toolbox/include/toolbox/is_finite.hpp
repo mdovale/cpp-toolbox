@@ -18,4 +18,4 @@ namespace toolbox {
   return std::isfinite(x);
 }
 
-}  // namespace toolbox
+} // namespace toolbox

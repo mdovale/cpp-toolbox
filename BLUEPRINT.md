@@ -146,12 +146,11 @@ Audience tone: explain ownership, UB, and lifetime the way we explain stiffness 
 
 ### Now (this revision)
 
-Constitution, catalog, directory tree, Cursor rules/skills/commands, a **CMake spine**, **Sphinx HTML and PDF**, and Doxygen/Breathe for `toolbox/`. Do not invent a second layout or a second docs stack.
+Constitution, catalog, directory tree, Cursor rules/skills/commands, CMake, Sphinx HTML/PDF, Doxygen/Breathe, CI, and clang-format/tidy. Do not invent a second layout or a second docs stack.
 
-### Next (formatters, then content)
+### Next (content)
 
-1. clang-format and clang-tidy.
-2. Content along `docs/learning-path.md` (start with `build-and-ub`).
+Content along `docs/learning-path.md` (start with `build-and-ub`).
 
 Presets: `dev` (warnings as errors, `compile_commands.json`), `sanitize` (ASan/UBSan), `docs`.
 

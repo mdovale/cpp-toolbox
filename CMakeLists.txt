@@ -21,6 +21,12 @@ option(
   OFF
 )
 
+option(
+  TOOLBOX_BUILD_DOCS
+  "Add docs-html and docs-pdf custom targets (needs Sphinx + Doxygen)"
+  OFF
+)
+
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/warnings.cmake")
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/sanitizers.cmake")
 include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/toolbox_example.cmake")
@@ -53,4 +59,42 @@ if(TOOLBOX_BUILD_EXAMPLES)
   toolbox_add_lesson_tree("${CMAKE_SOURCE_DIR}/examples")
   toolbox_add_lesson_tree("${CMAKE_SOURCE_DIR}/projects")
   toolbox_add_exercise_tree("${CMAKE_SOURCE_DIR}/exercises")
+endif()
+
+if(TOOLBOX_BUILD_DOCS)
+  find_package(Python3 COMPONENTS Interpreter REQUIRED)
+  find_program(DOXYGEN_EXECUTABLE doxygen REQUIRED)
+  execute_process(
+    COMMAND "${Python3_EXECUTABLE}" -c "import sphinx, breathe, myst_parser"
+    RESULT_VARIABLE _toolbox_sphinx_ok
+  )
+  if(NOT _toolbox_sphinx_ok EQUAL 0)
+    message(
+      FATAL_ERROR
+      "TOOLBOX_BUILD_DOCS needs Sphinx in ${Python3_EXECUTABLE} "
+      "(pip install -r docs/requirements.txt)"
+    )
+  endif()
+
+  add_custom_target(
+    docs-html
+    COMMAND
+      "${Python3_EXECUTABLE}" -m sphinx -W -b html
+      "${CMAKE_SOURCE_DIR}/docs" "${CMAKE_SOURCE_DIR}/docs/_build/html"
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+    COMMENT "Sphinx HTML"
+    VERBATIM
+  )
+  add_custom_target(
+    docs-pdf
+    COMMAND
+      "${Python3_EXECUTABLE}" -m sphinx -W -b latex
+      "${CMAKE_SOURCE_DIR}/docs" "${CMAKE_SOURCE_DIR}/docs/_build/latex"
+    COMMAND
+      "${CMAKE_COMMAND}" -E chdir "${CMAKE_SOURCE_DIR}/docs/_build/latex"
+      latexmk -pdf -interaction=nonstopmode cpp-toolbox.tex
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+    COMMENT "Sphinx PDF"
+    VERBATIM
+  )
 endif()

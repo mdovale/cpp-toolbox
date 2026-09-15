@@ -19,6 +19,37 @@ jobs:
       - name: Test
         run: ctest --preset dev
 
+  sanitize:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ninja and a C++ compiler
+        run: sudo apt-get update && sudo apt-get install -y ninja-build g++
+      - name: Configure
+        run: cmake --preset sanitize
+      - name: Build
+        run: cmake --build --preset sanitize
+      - name: Test
+        run: ctest --preset sanitize
+
+  format:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: pre-commit
+        run: |
+          pip install pre-commit
+          pre-commit run --all-files --show-diff-on-failure
+      - name: Install clang-tidy
+        run: sudo apt-get update && sudo apt-get install -y clang-tidy
+      - name: clang-tidy toolbox headers
+        run: |
+          clang-tidy toolbox/include/toolbox/*.hpp -- \
+            -std=c++20 -Itoolbox/include
+
   docs:
     runs-on: ubuntu-24.04
     steps:

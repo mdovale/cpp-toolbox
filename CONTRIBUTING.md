@@ -43,7 +43,7 @@ Do not open a PR that only adds a `.cpp` with a promise to document it later.
 
 ## Style
 
-[docs/style.md](docs/style.md) covers C++ and narrative voice. Short version: RAII, no raw `new`, scientific tone, units and a correctness check on numeric work, comments for invariants and pitfalls, README for *why*.
+[docs/style.md](docs/style.md) covers C++ and narrative voice. Short version: RAII, no raw `new`, scientific tone, units and a correctness check on numeric work, comments for invariants and pitfalls, README for *why*. Format C++ with clang-format; `pre-commit install` after cloning.
 
 ## Catalog status
 
@@ -68,4 +68,3 @@ Use the repository PR template. Title the PR with the kind and id, for example `
 ## Commits
 
 [Conventional Commits](https://www.conventionalcommits.org/): type and imperative subject on one line (≤50 characters), body wrapped at 72 columns. See `.cursor/rules/conventional-commits.mdc`.
-

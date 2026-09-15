@@ -1,0 +1,18 @@
+---
+Checks: >
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  bugprone-*,
+  -bugprone-easily-swappable-parameters,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  performance-*,
+  readability-*,
+  -readability-identifier-length,
+  -readability-magic-numbers,
+  cppcoreguidelines-*,
+  -cppcoreguidelines-avoid-magic-numbers
+HeaderFilterRegex: 'cpp-toolbox/toolbox/include/.*'
+WarningsAsErrors: '*'
+FormatStyle: file
+SystemHeaders: false

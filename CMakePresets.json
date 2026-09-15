@@ -29,11 +29,13 @@
     },
     {
       "name": "docs",
-      "displayName": "Docs (configure)",
+      "displayName": "Docs (Sphinx targets)",
       "inherits": "dev",
       "binaryDir": "${sourceDir}/build/docs",
       "cacheVariables": {
-        "TOOLBOX_BUILD_TESTING": "ON"
+        "TOOLBOX_BUILD_TESTING": "OFF",
+        "TOOLBOX_BUILD_DOCS": "ON",
+        "Python3_EXECUTABLE": "${sourceDir}/.venv/bin/python"
       }
     }
   ],

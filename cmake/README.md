@@ -8,4 +8,4 @@ CMake modules for the superbuild. Included from the root `CMakeLists.txt`.
 | `sanitizers.cmake` | `toolbox_apply_sanitizers()` — ASan/UBSan when `TOOLBOX_ENABLE_SANITIZERS` |
 | `toolbox_example.cmake` | `add_toolbox_example()` — one catalog lesson, one executable |
 
-Presets: `CMakePresets.json` at the repo root (`dev`, `sanitize`, `docs`). `templates/` are never registered as targets.
+Presets: `CMakePresets.json` at the repo root (`dev`, `sanitize`, `docs` with `docs-html` / `docs-pdf`). `templates/` are never registered as targets.

@@ -1,8 +1,8 @@
+#include <limits>
+
 #include <catch2/catch_test_macros.hpp>
 
 #include <toolbox/is_finite.hpp>
-
-#include <limits>
 
 TEST_CASE("is_finite accepts ordinary doubles") {
   REQUIRE(toolbox::is_finite(0.0));
