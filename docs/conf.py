@@ -21,7 +21,13 @@ def _run_doxygen() -> None:
         ["doxygen", str(doxyfile)],
         cwd=DOCS_DIR,
         check=False,
+        capture_output=True,
+        text=True,
     )
+    if result.stdout:
+        print(result.stdout, end="")
+    if result.stderr:
+        print(result.stderr, file=sys.stderr, end="")
     if result.returncode != 0:
         sys.exit(f"doxygen failed with exit code {result.returncode}")
     if not (DOXY_XML / "index.xml").is_file():

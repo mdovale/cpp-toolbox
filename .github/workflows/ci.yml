@@ -9,7 +9,7 @@ jobs:
   test:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install ninja and a C++ compiler
         run: sudo apt-get update && sudo apt-get install -y ninja-build g++
       - name: Configure
@@ -22,7 +22,7 @@ jobs:
   sanitize:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install ninja and a C++ compiler
         run: sudo apt-get update && sudo apt-get install -y ninja-build g++
       - name: Configure
@@ -35,8 +35,8 @@ jobs:
   format:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: pre-commit
@@ -53,14 +53,14 @@ jobs:
   docs:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Install Doxygen and LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y doxygen latexmk texlive-latex-recommended \
+          sudo apt-get install -y doxygen g++ latexmk texlive-latex-recommended \
             texlive-latex-extra texlive-fonts-recommended
       - name: Install Python docs deps
         run: pip install -r docs/requirements.txt
