@@ -59,5 +59,5 @@ c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror \
 
 - `cmake-app`: prior spine item; multi-file layout. This leaf is one
   translation unit again.
-- `error-handling` (planned): next spine item; failure is normal in
-  laboratory programs.
+- `error-handling`: next spine item; failure is normal in laboratory
+  programs.

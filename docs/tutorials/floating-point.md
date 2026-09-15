@@ -10,8 +10,8 @@
 ```
 
 This is chapter 4 of the [contents](../learning-path.md). It depends on
-[cmake-app](cmake-app.md). The next spine id is `error-handling`; that
-chapter is not yet written.
+[cmake-app](cmake-app.md). The next spine chapter is
+[error-handling](error-handling.md).
 
 IEEE-754 binary64 (`double`) is a finite set of numbers with a 53-bit
 significand {cite}`ieee754-2019`. Rounding maps a real voltage or a real
@@ -109,8 +109,8 @@ conceals.
 A correctly rounded library routine for a particular expression, or a
 compensated summation, can reduce that expression's error. Laboratory
 scalars in this book stay in binary64 with a stated tolerance. The next
-spine item, `error-handling`, is about failures the program can report.
-This chapter is about results the program reports with full confidence
-and the wrong value.
+spine chapter, [error-handling](error-handling.md), is about failures
+the program can report. This chapter is about results the program
+reports with full confidence and the wrong value.
 
 Cited works are collected in {doc}`/references`.

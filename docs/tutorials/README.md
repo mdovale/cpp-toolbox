@@ -11,4 +11,5 @@ build-and-ub
 raii-and-ownership
 cmake-app
 floating-point
+error-handling
 ```

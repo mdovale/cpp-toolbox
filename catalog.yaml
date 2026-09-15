@@ -82,7 +82,8 @@ entries:
     tags: [exceptions, expected, error-handling]
     title: Errors in laboratory C++
     path: tutorials/05-error-handling
-    status: planned
+    status: complete
+    prose: complete
   - id: small-linear-algebra
     kind: tutorial
     topic: linear-algebra
