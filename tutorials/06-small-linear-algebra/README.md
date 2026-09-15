@@ -56,12 +56,11 @@ c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror \
 /tmp/small-linear-algebra --broken
 ```
 
-Named frames and rotations are the next spine item; this leaf does not
-name frames.
+Named frames and rotations are the next spine item.
 
 ## See also
 
 - `error-handling`: prior spine item; a detected failure can still be
   swallowed. This chapter is a defined product with the wrong layout.
-- `frames-and-rotations` (planned): next spine item; named frames and
-  Euler singularities.
+- `frames-and-rotations`: next spine item; named frames and Euler
+  singularities.

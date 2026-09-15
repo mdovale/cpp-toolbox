@@ -5,11 +5,11 @@ order. Catalog `id`s are the machine names in `catalog.yaml`, in CMake
 target names, and in folder slugs (`tutorials/NN-<id>/`). Fill this
 spine as vertical slices before a large set of disconnected examples.
 
-Chapters 1 through 6 (`build-and-ub`, `raii-and-ownership`,
+Chapters 1 through 7 (`build-and-ub`, `raii-and-ownership`,
 `cmake-app`, `floating-point`, `error-handling`,
-`small-linear-algebra`) are written. Later chapters remain planned
-until they exist as the same kind of slice, including
-`prose: complete`.
+`small-linear-algebra`, `frames-and-rotations`) are written. Later
+chapters remain planned until they exist as the same kind of slice,
+including `prose: complete`.
 
 The audience is the working engineer or scientist. Ownership, undefined
 behavior, and lifetime are taught in the sense of conditioning: they

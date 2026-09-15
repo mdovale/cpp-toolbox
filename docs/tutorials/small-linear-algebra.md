@@ -10,8 +10,8 @@
 ```
 
 This is chapter 6 of the [contents](../learning-path.md). It depends on
-[error-handling](error-handling.md). The next spine id is
-`frames-and-rotations`; that chapter is not yet written.
+[error-handling](error-handling.md). The next spine chapter is
+[frames-and-rotations](frames-and-rotations.md).
 
 A laboratory 3-vector is three objects of type `double` with a layout,
 and a $3\times 3$ map is nine more. Forming $y=Ax$ is a sum over a
@@ -19,9 +19,10 @@ stated index convention {cite}`golub2013`. Swapping the row stride with
 the column stride applies $A^{\top}$ instead of $A$, which is a small
 change in an assumption, in the sense of conditioning: the evaluation
 remains defined, `AddressSanitizer` stays quiet, and the printed
-coordinates still look like a position in meters. Named frames stay
-labels until chapter 7; this chapter is the map those frames will use,
-as in [notation](../notation.md).
+coordinates still look like a position in meters. Named frames are
+labels in [frames-and-rotations](frames-and-rotations.md); this
+chapter is the map those frames will use, as in
+[notation](../notation.md).
 
 ## The program
 
@@ -107,8 +108,9 @@ kernel. Eigen or a BLAS `dgemv` belong when the map is no longer nine
 entries {cite}`trefethen1997`. This leaf stays on `std::array` so the
 folder compiles by itself.
 
-The next spine item, `frames-and-rotations`, names the frames that $x$
-and $Ax$ occupy. This chapter is the product that those names will
+The next spine chapter,
+[frames-and-rotations](frames-and-rotations.md), names the frames that
+$x$ and $Ax$ occupy. This chapter is the product that those names will
 require to be unambiguous.
 
 Cited works are collected in {doc}`/references`.

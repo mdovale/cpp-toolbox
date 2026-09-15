@@ -102,7 +102,8 @@ entries:
     tags: [rotations, euler-angles, frames]
     title: Named frames and rotations
     path: tutorials/07-frames-and-rotations
-    status: planned
+    status: complete
+    prose: complete
   - id: ode-rk4
     kind: tutorial
     topic: numerics
