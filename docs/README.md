@@ -1,10 +1,16 @@
 # Documentation
 
-This directory becomes the **Sphinx book** (HTML and PDF). Until the build spine exists ([build.md](build.md)), these pages are the narrative source we will wire up.
+This directory is the **Sphinx book** source. From the repository root:
+
+```bash
+source .venv/bin/activate
+pip install -r docs/requirements.txt
+sphinx-build -W -b html docs docs/_build/html
+```
 
 | File | Role |
 |---|---|
-| [index.md](index.md) | Book landing page (future Sphinx root) |
+| [index.md](index.md) | Book landing page (Sphinx root) |
 | [learning-path.md](learning-path.md) | Order we fill tutorials first |
 | [style.md](style.md) | C++ and prose conventions |
 | [build.md](build.md) | CMake, Sphinx, Doxygen, presets |

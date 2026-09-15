@@ -4,7 +4,7 @@ Modern C++ examples, tutorials, exercises, mini-projects, and copy-out templates
 
 The code follows current C++ practice (C++20 as the floor). Documentation is meant to become a **book**: HTML and PDF from the same sources, with math and citations. You do not need a computer-science degree; calculus, linear algebra, and some numerical methods are assumed.
 
-This repository has a **CMake spine** (`dev` / `sanitize` presets and `toolbox` tests). The Sphinx book is not wired yet. Treat [BLUEPRINT.md](BLUEPRINT.md) as the constitution and [catalog.yaml](catalog.yaml) as the backlog.
+This repository has a **CMake spine** and a **Sphinx HTML book**. PDF is not wired yet. Treat [BLUEPRINT.md](BLUEPRINT.md) as the constitution and [catalog.yaml](catalog.yaml) as the backlog.
 
 ## Who this is for
 
@@ -40,7 +40,15 @@ cmake --build --preset dev
 ctest --preset dev
 ```
 
-The Sphinx book (HTML and PDF) is not wired yet.
+The Sphinx HTML book:
+
+```bash
+source .venv/bin/activate
+pip install -r docs/requirements.txt
+sphinx-build -W -b html docs docs/_build/html
+```
+
+PDF is not wired yet.
 
 ## Contributing
 

@@ -1,6 +1,6 @@
 # Style
 
-C++ and prose conventions for cpp-toolbox. The constitution is [BLUEPRINT.md](../BLUEPRINT.md). This page is the working standard for code and the book.
+C++ and prose conventions for cpp-toolbox. The constitution is `BLUEPRINT.md` at the repository root. This page is the working standard for code and the book.
 
 ## Audience
 

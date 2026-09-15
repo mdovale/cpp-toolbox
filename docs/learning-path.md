@@ -1,6 +1,6 @@
 # Learning path
 
-Fill **this spine** before a large set of disconnected examples. How-tos, examples, and projects should link back here. These ten rows are already `status: planned` in [`catalog.yaml`](../catalog.yaml); adding a tutorial means filling that row as a vertical slice, not inventing a parallel sequence.
+Fill **this spine** before a large set of disconnected examples. How-tos, examples, and projects should link back here. These ten rows are already `status: planned` in `catalog.yaml` at the repository root; adding a tutorial means filling that row as a vertical slice, not inventing a parallel sequence.
 
 Assume calculus, linear algebra, and some numerical methods. Do not assume CS coursework. Ownership, undefined behavior, and lifetime are taught the way we explain stiffness and conditioning: they make answers silently wrong.
 
@@ -17,4 +17,4 @@ Assume calculus, linear algebra, and some numerical methods. Do not assume CS co
 | 09 | `cmake-app` | Structure a small CMake app | `build` | The build system is a lesson, not magic. |
 | 10 | `read-a-profile` | How to read a profiler output | `performance` | Measure before rewriting the kernel. |
 
-When you add tutorial *N*, use folder `tutorials/NN-<id>/`, set `kind: tutorial`, and mark `status: complete` only as a vertical slice ([CONTRIBUTING.md](../CONTRIBUTING.md)).
+When you add tutorial *N*, use folder `tutorials/NN-<id>/`, set `kind: tutorial`, and mark `status: complete` only as a vertical slice (`CONTRIBUTING.md` at the repository root).

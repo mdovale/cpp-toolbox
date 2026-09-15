@@ -1,10 +1,10 @@
 # Build and documentation toolchain
 
-**Status:** CMake spine is in place (`dev`, `sanitize`, `docs` configure). Sphinx HTML/PDF is still planned. Do not introduce a competing stack (Make-only, mdBook, Doxygen-only, Meson, …). Constitution: [BLUEPRINT.md](../BLUEPRINT.md).
+**Status:** CMake spine and **Sphinx HTML** are in place. PDF (LaTeX) and Doxygen/Breathe are still planned. Do not introduce a competing stack (Make-only, mdBook, Doxygen-only, Meson, …). Constitution: `BLUEPRINT.md` at the repository root.
 
 ## CMake
 
-C++20 at the root; an entry may request 23 via `add_toolbox_example(... STD 23)`. Root `CMakeLists.txt` + `CMakePresets.json` + modules in [`cmake/`](../cmake/).
+C++20 at the root; an entry may request 23 via `add_toolbox_example(... STD 23)`. Root `CMakeLists.txt` + `CMakePresets.json` + modules in `cmake/`.
 
 - `add_toolbox_example()` registers one executable per lesson. No mega-binary of demos.
 - `templates/` are never in-tree targets.
@@ -37,18 +37,38 @@ A leaf `main.cpp` must still be valid C++20 a reader can compile by hand:
 c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp -o demo
 ```
 
-## Documentation (planned)
+## Documentation
+
+HTML is built with Sphinx + MyST. Doxygen, Breathe, bibtex, and PDF are still planned.
 
 | Tool | Role |
 |---|---|
-| Sphinx + MyST | Narrative book |
-| Doxygen | API XML from `toolbox/` and reusable headers |
-| Breathe (optionally Exhale) | API into Sphinx |
-| sphinxcontrib-bibtex | Citations |
+| Sphinx + MyST | Narrative book (HTML, wired) |
+| Doxygen | API XML from `toolbox/` (planned) |
+| Breathe (optionally Exhale) | API into Sphinx (planned) |
+| sphinxcontrib-bibtex | Citations (planned) |
 | `sphinx-build -b html` | HTML |
-| `sphinx-build -b latex` + `latexmk` | PDF |
+| `sphinx-build -b latex` + `latexmk` | PDF (planned) |
 
-`docs/index.md` is the future Sphinx root. Generated output stays in `docs/_build/` (gitignored). CI should build HTML and PDF and fail on Sphinx warnings and on undocumented `toolbox/` parameters.
+```bash
+source .venv/bin/activate
+pip install -r docs/requirements.txt
+sphinx-build -W -b html docs docs/_build/html
+```
+
+Open `docs/_build/html/index.html`. Generated output stays in `docs/_build/` (gitignored).
+
+### How the book includes code
+
+Sphinx pulls marked regions from real sources. The cookie at `templates/catalog-entry/main.cpp` is the smoke test:
+
+```{literalinclude} ../templates/catalog-entry/main.cpp
+:language: cpp
+:start-after: // start CHANGE_ME
+:end-before: // end CHANGE_ME
+```
+
+If that block is empty or missing, the HTML build must fail. Lesson pages use the same `// start <id>` / `// end <id>` markers.
 
 ## Quality tools
 
