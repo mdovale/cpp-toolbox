@@ -146,19 +146,15 @@ Audience tone: explain ownership, UB, and lifetime the way we explain stiffness 
 
 ### Now (this revision)
 
-The repo is a **documented skeleton**: constitution, catalog schema, directory tree, and Cursor rules/skills/commands. There is not yet a working CMake superbuild or Sphinx site. Do not invent a second layout or a second docs stack while that spine is missing.
+Constitution, catalog, directory tree, Cursor rules/skills/commands, and a **CMake spine** (`dev` / `sanitize`, header-only `toolbox/` + Catch2). Sphinx HTML/PDF is not wired yet. Do not invent a second layout or a second docs stack.
 
-### Next (build and docs spine)
+### Next (docs spine, then content)
 
-Implement these before a large content dump. Order matters.
+1. Sphinx + Doxygen + Breathe; one page that `literalinclude`s a real file; **HTML and PDF** in CI.
+2. clang-format and clang-tidy.
+3. Content along `docs/learning-path.md`.
 
-1. Root `CMakeLists.txt` + `CMakePresets.json` + `add_toolbox_example()` in `cmake/`.
-2. `toolbox/` with one trivial header and a Catch2 test — proves the spine.
-3. Sphinx + Doxygen + Breathe; one tutorial page that `literalinclude`s a real file; **HTML and PDF** in CI.
-4. clang-format, clang-tidy, sanitizer preset.
-5. Then content along `docs/learning-path.md`.
-
-Presets (planned): `dev` (warnings as errors, `compile_commands.json`), `sanitize` (ASan/UBSan), `docs`.
+Presets: `dev` (warnings as errors, `compile_commands.json`), `sanitize` (ASan/UBSan), `docs`.
 
 Dependencies stay tiny and pinned (CPM or FetchContent): `{fmt}`, Catch2, Eigen only when an entry needs it. We are not a vcpkg catalog.
 

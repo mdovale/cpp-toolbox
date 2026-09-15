@@ -26,7 +26,7 @@ Do not open a PR that only adds a `.cpp` with a promise to document it later.
 4. **Write the leaf `README.md`**: what, when to use it, how to build, see-also. This page is included in the book.
 5. **Append a row to [`catalog.yaml`](catalog.yaml).** Use an existing topic from that file, or add a topic in the same change and say why.
 6. **Add a Sphinx page** under `docs/tutorials/`, `docs/how-to/`, `docs/examples/`, `docs/exercises/`, `docs/projects/`, or `docs/templates/` (filename = `id`) that `literalinclude`s the marked region (see [docs/style.md](docs/style.md)). Until Sphinx is wired up, still add the Markdown page so the slice is complete.
-7. **Build and sanity-check** once CMake exists: `dev` preset for the new target, then `sanitize`. Until then, the code must still be valid C++20 a reader could compile by hand.
+7. **Build and sanity-check:** `cmake --preset dev --target <id>` then `ctest --preset dev` if you added tests. Repeat with the `sanitize` preset. The leaf must still compile by hand as `c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp`.
 
 ### Where it goes
 

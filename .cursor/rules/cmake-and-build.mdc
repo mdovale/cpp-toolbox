@@ -14,4 +14,4 @@ Spec: [docs/build.md](docs/build.md). Do not add Meson, a root Makefile-as-syste
 - Presets: `dev` (warnings as errors, compile commands), `sanitize` (ASan/UBSan), `docs`.
 - Default configure: toolbox tests + tutorials. Examples/projects: `-DTOOLBOX_BUILD_EXAMPLES=ON`.
 - Dependencies: tiny, pinned (CPM/FetchContent), justified in the entry README. Catch2 and `{fmt}` are the expected first pins.
-- Until the spine exists, keep `main.cpp` valid as `c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp`.
+- Leaf `main.cpp` files must still compile as `c++ -std=c++20 -Wall -Wextra -Wpedantic -Werror main.cpp`.

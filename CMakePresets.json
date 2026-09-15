@@ -1,0 +1,70 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "dev",
+      "displayName": "Development",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/dev",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "TOOLBOX_WARNINGS_AS_ERRORS": "ON",
+        "TOOLBOX_BUILD_TESTING": "ON",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "sanitize",
+      "displayName": "ASan + UBSan",
+      "inherits": "dev",
+      "binaryDir": "${sourceDir}/build/sanitize",
+      "cacheVariables": {
+        "TOOLBOX_ENABLE_SANITIZERS": "ON"
+      }
+    },
+    {
+      "name": "docs",
+      "displayName": "Docs (configure)",
+      "inherits": "dev",
+      "binaryDir": "${sourceDir}/build/docs",
+      "cacheVariables": {
+        "TOOLBOX_BUILD_TESTING": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "dev",
+      "configurePreset": "dev"
+    },
+    {
+      "name": "sanitize",
+      "configurePreset": "sanitize"
+    },
+    {
+      "name": "docs",
+      "configurePreset": "docs"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "dev",
+      "configurePreset": "dev",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "sanitize",
+      "configurePreset": "sanitize",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}

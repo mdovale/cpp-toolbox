@@ -1,11 +1,11 @@
 # cmake/
 
-Reserved for the CMake spine ([docs/build.md](../docs/build.md)):
+CMake modules for the superbuild. Included from the root `CMakeLists.txt`.
 
-| Planned file | Role |
+| File | Role |
 |---|---|
-| `warnings.cmake` | `-Wall -Wextra -Wpedantic -Werror` for the `dev` preset |
-| `sanitizers.cmake` | ASan/UBSan for the `sanitize` preset |
-| `toolbox_example.cmake` | `add_toolbox_example()` — one catalog entry, one target |
+| `warnings.cmake` | `toolbox_apply_warnings()` — `-Wall -Wextra -Wpedantic`; `-Werror` when `TOOLBOX_WARNINGS_AS_ERRORS` |
+| `sanitizers.cmake` | `toolbox_apply_sanitizers()` — ASan/UBSan when `TOOLBOX_ENABLE_SANITIZERS` |
+| `toolbox_example.cmake` | `add_toolbox_example()` — one catalog lesson, one executable |
 
-Do not add a second build system here. Root `CMakeLists.txt` and `CMakePresets.json` are not written yet; this directory exists so that layout is fixed.
+Presets: `CMakePresets.json` at the repo root (`dev`, `sanitize`, `docs`). `templates/` are never registered as targets.

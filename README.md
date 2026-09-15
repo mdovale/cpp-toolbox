@@ -4,7 +4,7 @@ Modern C++ examples, tutorials, exercises, mini-projects, and copy-out templates
 
 The code follows current C++ practice (C++20 as the floor). Documentation is meant to become a **book**: HTML and PDF from the same sources, with math and citations. You do not need a computer-science degree; calculus, linear algebra, and some numerical methods are assumed.
 
-This repository is in **skeleton** form: the layout, catalog, and contribution rules are in place. The CMake superbuild and the Sphinx site come next (see [docs/build.md](docs/build.md)). Until then, treat [BLUEPRINT.md](BLUEPRINT.md) as the constitution and [catalog.yaml](catalog.yaml) as the backlog.
+This repository has a **CMake spine** (`dev` / `sanitize` presets and `toolbox` tests). The Sphinx book is not wired yet. Treat [BLUEPRINT.md](BLUEPRINT.md) as the constitution and [catalog.yaml](catalog.yaml) as the backlog.
 
 ## Who this is for
 
@@ -32,9 +32,15 @@ Start with [docs/learning-path.md](docs/learning-path.md). That spine is the ord
 
 ## Building
 
-The build spine is not implemented yet. The intended flow is CMake presets (`dev`, `sanitize`, `docs`), C++20, warnings as errors, and sanitizers. Details: [docs/build.md](docs/build.md).
+CMake presets compile the header-only [`toolbox/`](toolbox/) and its Catch2 tests. Tutorials are picked up when their folders exist. How-tos, examples, and projects need `-DTOOLBOX_BUILD_EXAMPLES=ON`. Details: [docs/build.md](docs/build.md).
 
-Documentation will be Sphinx (MyST) + Doxygen: `sphinx-build` for HTML, LaTeX + `latexmk` for PDF. Narrative pages include real source files so the book cannot rot.
+```bash
+cmake --preset dev
+cmake --build --preset dev
+ctest --preset dev
+```
+
+The Sphinx book (HTML and PDF) is not wired yet.
 
 ## Contributing
 
