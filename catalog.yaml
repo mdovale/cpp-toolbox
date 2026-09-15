@@ -52,7 +52,8 @@ entries:
     tags: [raii, span, lifetime]
     title: RAII, ownership, and views
     path: tutorials/02-raii-and-ownership
-    status: planned
+    status: complete
+    prose: complete
   - id: cmake-app
     kind: tutorial
     topic: build

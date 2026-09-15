@@ -8,4 +8,5 @@ Contents: [../learning-path.md](../learning-path.md). Specimen: [build-and-ub.md
 :caption: Chapters
 
 build-and-ub
+raii-and-ownership
 ```
